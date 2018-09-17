@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class LoadingScreen implements Screen {
     private SpriteBatch batch;
+    private float timetoWait=2f;
    private Texture img;
    private ArchaicInsurrection game;
     public LoadingScreen(ArchaicInsurrection game, SpriteBatch batch) {
@@ -33,6 +34,15 @@ public class LoadingScreen implements Screen {
         batch.begin();
         batch.draw(img, 0, 0);
         batch.end();
+
+timetoWait-=delta;
+        Gdx.app.log(TAG,"Time to wait: "+timetoWait);
+if(timetoWait<=0) {
+    Gdx.app.log(TAG,"IN timetoWait if statement OF RENDER method in LoadingScreen class");
+    game.setScreen(ArchaicInsurrection.SCREENTYPE.MENU);
+    timetoWait=2;
+}
+
     }
 
     @Override
@@ -62,6 +72,7 @@ public class LoadingScreen implements Screen {
     @Override
     public void dispose() {
         Gdx.app.log(TAG,"IN DISPOSE METHOD OF LoadingScreen CLASS");
+        img.dispose();
 
     }
 }

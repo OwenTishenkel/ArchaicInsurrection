@@ -76,11 +76,12 @@ public class ArchaicInsurrection extends Game {
 
 	@Override
 	public void create () {
+        Gdx.app.log(TAG,"in Create Method of main Game class ");
         screenTable = new Hashtable<SCREENTYPE, Screen>();
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		setScreen(SCREENTYPE.LOAD);
-		Gdx.app.log(TAG,"in Create Method of main Game class ");
+
 
 	}
 
@@ -95,6 +96,7 @@ public class ArchaicInsurrection extends Game {
 	
 	@Override
 	public void dispose () {
+        Gdx.app.log(TAG,"in DISPOSE Method of main Game class ");
 		batch.dispose();
 		img.dispose();
 	}
