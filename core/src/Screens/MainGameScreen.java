@@ -10,6 +10,9 @@ public class MainGameScreen implements Screen {
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
+
+    //box2d
+
     public MainGameScreen(ArchaicInsurrection game, SpriteBatch batch) {
         this.batch = batch;
         this.game = game;
