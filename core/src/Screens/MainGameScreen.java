@@ -11,6 +11,8 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import Helpers.Figures;
+
 public class MainGameScreen implements Screen {
     private static final String TAG = MainGameScreen.class.getSimpleName();
     private SpriteBatch batch;
@@ -28,7 +30,8 @@ public class MainGameScreen implements Screen {
         this.batch = batch;
         this.game = game;
         camera =new OrthographicCamera();
-        gameViewport = new FitViewport(16,11, camera);
+        gameViewport = new FitViewport(Figures.VIRTUALWIDTH,Figures.VIRTUALHEIGHT, camera);
+        camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
 
     }
 
@@ -45,7 +48,7 @@ public class MainGameScreen implements Screen {
     public void render(float delta) {
         Gdx.app.log(TAG, "In Render method of MainGameScreen class");
         camera.update();
-        
+
 
 
         Gdx.gl.glClearColor(0,0,0,1);
