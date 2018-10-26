@@ -1,6 +1,7 @@
 package Screens;
 
 import com.archaicinsurrection.ArchaicInsurrection;
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import Helpers.Figures;
+import Helpers.GameInput;
 
 public class MainGameScreen implements Screen {
     private static final String TAG = MainGameScreen.class.getSimpleName();
@@ -26,12 +28,29 @@ public class MainGameScreen implements Screen {
 
     //box2d
 
+
+    //Controls
+    private GameInput gameInput;
+
+
+    //Ashley
+    private PooledEngine engine;
+
     public MainGameScreen(ArchaicInsurrection game, SpriteBatch batch) {
+        Gdx.app.log(TAG, "In Constructor of MainGameScreen class");
+
+     //Setup
         this.batch = batch;
         this.game = game;
         camera =new OrthographicCamera();
         gameViewport = new FitViewport(Figures.VIRTUALWIDTH,Figures.VIRTUALHEIGHT, camera);
         camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
+        gameInput=new GameInput(gameViewport);
+        engine=new PooledEngine(100,500,300,1000);
+
+
+
+
 
     }
 
