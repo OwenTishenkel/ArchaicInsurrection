@@ -41,6 +41,7 @@ public class EntityManager {
         switch(entityName) {
             case "player":
             addBodyComponent(entity,entityName,x,y);
+            addTypeComponent(entity,entityName);
             break;
         }
 
@@ -92,7 +93,16 @@ public class EntityManager {
     }
     private Entity addTypeComponent(Entity entity, String entityName) {
         TypeComponent typeComponent= engine.createComponent(TypeComponent.class);
-
+        short type;
+        switch(entityName) {
+            case "player":
+                type=Figures.PLAYER;
+            default:
+                type=Figures.OTHER;
+        }
+        typeComponent.setType(type);
+        entity.add(typeComponent);
+        return entity;
     }
 
 }
