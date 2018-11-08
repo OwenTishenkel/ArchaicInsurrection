@@ -25,7 +25,7 @@ public class LoadingScreen implements Screen {
         Gdx.app.log(TAG,"IN SHOW METHOD OF LoadingScreen CLASS");
 
     }
-
+//
     @Override
     public void render(float delta) {
         Gdx.app.log(TAG,"IN RENDER METHOD OF LoadingScreen CLASS");
