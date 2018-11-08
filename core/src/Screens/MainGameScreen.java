@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import Helpers.Figures;
 import Helpers.GameInput;
+import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
 
 
@@ -41,6 +42,7 @@ public class MainGameScreen implements Screen {
     //Ashley
     private PooledEngine engine;
     private PhysicsSystem physicsSystem;
+    private PhysicsDebugSystem physicsDebugSystem;
 
 
 
@@ -60,6 +62,7 @@ public class MainGameScreen implements Screen {
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
         world = new World(Figures.GRAVITATIONAL_FORCES,true);
+        initAshleySystems();
 
 
 
@@ -71,7 +74,9 @@ public class MainGameScreen implements Screen {
 
     public void initAshleySystems(){
         physicsSystem = new PhysicsSystem(world);
+        physicsDebugSystem = new PhysicsDebugSystem(world,camera);
         engine.addSystem(physicsSystem);
+        engine.addSystem(physicsDebugSystem);
     }
 
     public MainGameScreen() {
