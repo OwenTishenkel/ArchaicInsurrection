@@ -9,11 +9,15 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import Helpers.Figures;
 import Helpers.GameInput;
+import Systems.PhysicsSystem;
+
+
 
 public class MainGameScreen implements Screen {
     private static final String TAG = MainGameScreen.class.getSimpleName();
@@ -27,6 +31,7 @@ public class MainGameScreen implements Screen {
 
 
     //box2d
+    private World world;
 
 
     //Controls
@@ -35,6 +40,13 @@ public class MainGameScreen implements Screen {
 
     //Ashley
     private PooledEngine engine;
+    private PhysicsSystem physicsSystem;
+
+
+
+
+
+
 
     public MainGameScreen(ArchaicInsurrection game, SpriteBatch batch) {
         Gdx.app.log(TAG, "In Constructor of MainGameScreen class");
@@ -47,11 +59,19 @@ public class MainGameScreen implements Screen {
         camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
+        world = new World(Figures.GRAVITATIONAL_FORCES,true);
 
 
 
 
 
+    }
+
+
+
+    public void initAshleySystems(){
+        physicsSystem = new PhysicsSystem(world);
+        engine.addSystem(physicsSystem);
     }
 
     public MainGameScreen() {
@@ -66,12 +86,13 @@ public class MainGameScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.app.log(TAG, "In Render method of MainGameScreen class");
-        camera.update();
+        //camera.update();
 
 
 
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        engine.update(delta);
     }
 
     @Override
