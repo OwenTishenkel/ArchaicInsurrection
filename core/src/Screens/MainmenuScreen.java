@@ -12,6 +12,7 @@ public class MainmenuScreen implements Screen {
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
+    private float timetoWait=2f;
 
     public MainmenuScreen(ArchaicInsurrection game, SpriteBatch batch) {
         this.batch = batch;
@@ -29,6 +30,16 @@ public class MainmenuScreen implements Screen {
         Gdx.app.log(TAG, "In RENDER method of MainmenuScreen class");
         Gdx.gl.glClearColor(5, 0, 90, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
+        timetoWait-=delta;
+        Gdx.app.log(TAG,"Time to wait: "+timetoWait);
+        if(timetoWait<=0) {
+            Gdx.app.log(TAG, "IN timetoWait if statement OF RENDER method in MainmenuScreen class");
+            Gdx.app.log(TAG, "Jumping to MainGameScreen");
+            game.setScreen(ArchaicInsurrection.SCREENTYPE.GAME);
+            timetoWait = 2;
+        }
     }
 
     @Override

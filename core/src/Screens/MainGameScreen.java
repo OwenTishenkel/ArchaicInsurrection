@@ -126,5 +126,10 @@ public class MainGameScreen implements Screen {
     @Override
     public void dispose() {
         Gdx.app.log(TAG, "In dispose method of MainGameScreen class");
+        world.dispose();
+
+
+
     }
 }
+//https://beepbox.co/#6n31s0kbl00e03t7m0a7g0fj7i0r1o3210T0w1f1d1c0h0v0T0w1f1d1c0h0v0T0w1f1d1c0h0v0T2w1d1v0b4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4p21uKo-sotjxRkUhvkU1nkTB5jmhRd8Rje5ldlnBmZlX5kKPladzAfijwple4008QNU8Q1F8INMq8waowdJddddddddddddd80
