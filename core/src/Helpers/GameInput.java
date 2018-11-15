@@ -24,27 +24,27 @@ private boolean left,right,up,down;
 
     @Override
     public boolean keyDown(int keycode) {
-        boolean keypressed = false;
+        boolean keyProcessed = false;
         switch(keycode) {
             case Input.Keys.A:
                 left=true;
-                keypressed = true;
+                keyProcessed = true;
                 break;
 
             case Input.Keys.D:
                 right=true;
-                keypressed = true;
+                keyProcessed = true;
                 break;
 
 
             case Input.Keys.W:
                 up=true;
-                keypressed = true;
+                keyProcessed = true;
                 break;
 
             case Input.Keys.S:
                 down=true;
-                keypressed = true;
+                keyProcessed = true;
                 break;
 
         }
@@ -53,36 +53,36 @@ private boolean left,right,up,down;
 
 
 
-        return keypressed;
+        return keyProcessed;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        boolean keypressed = true;
+        boolean keyProcessed = false;//Might cause problems if called before keydown()
         switch(keycode) {
             case Input.Keys.A:
                 left=false;
-                keypressed = false;
+                keyProcessed = true;
                 break;
 
             case Input.Keys.D:
                 right=false;
-                keypressed = false;
+                keyProcessed = true;
                 break;
 
 
             case Input.Keys.W:
                 up=false;
-                keypressed = false;
+                keyProcessed = true;
                 break;
 
             case Input.Keys.S:
                 down=false;
-                keypressed = false;
+                keyProcessed = true;
                 break;
 
         }
-        return keypressed;
+        return keyProcessed;
     }
 
     @Override
@@ -136,4 +136,28 @@ private boolean left,right,up,down;
     public void pinchStop() {
 
     }
+
+
+    public boolean isLeft() {
+        return left;
+    }
+
+
+    public boolean isRight() {
+        return right;
+    }
+
+
+
+    public boolean isUp() {
+        return up;
+    }
+
+
+
+    public boolean isDown() {
+        return down;
+    }
+
+
 }
