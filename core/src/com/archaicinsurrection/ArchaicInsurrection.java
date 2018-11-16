@@ -79,7 +79,7 @@ public class ArchaicInsurrection extends Game {
         Gdx.app.log(TAG,"in Create Method of main Game class ");
         screenTable = new Hashtable<SCREENTYPE, Screen>();
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		//img = new Texture("badlogic.jpg");
 		setScreen(SCREENTYPE.LOAD);
 
 

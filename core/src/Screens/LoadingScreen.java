@@ -15,7 +15,7 @@ public class LoadingScreen implements Screen {
     public LoadingScreen(ArchaicInsurrection game, SpriteBatch batch) {
         this.game = game;
         this.batch=batch;
-        img = new Texture("badlogic.jpg");
+       // img = new Texture("badlogic.jpg"); //It Can't seem to figure out what this is
 
     }
 
@@ -31,9 +31,9 @@ public class LoadingScreen implements Screen {
         Gdx.app.log(TAG,"IN RENDER METHOD OF LoadingScreen CLASS");
         Gdx.gl.glClearColor(0, 1, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
+        /*batch.begin();
         batch.draw(img, 0, 0);
-        batch.end();
+        batch.end();*/
 
 timetoWait-=delta;
         Gdx.app.log(TAG,"Time to wait: "+timetoWait);

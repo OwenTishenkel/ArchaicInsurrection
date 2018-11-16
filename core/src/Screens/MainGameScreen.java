@@ -17,7 +17,7 @@ import Helpers.Figures;
 import Helpers.GameInput;
 import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
-
+import Systems.PlayerControlSystem;
 
 
 public class MainGameScreen implements Screen {
@@ -43,6 +43,7 @@ public class MainGameScreen implements Screen {
     private PooledEngine engine;
     private PhysicsSystem physicsSystem;
     private PhysicsDebugSystem physicsDebugSystem;
+    private PlayerControlSystem playerControlSystem;
 
 
 
@@ -75,8 +76,10 @@ public class MainGameScreen implements Screen {
     public void initAshleySystems(){
         physicsSystem = new PhysicsSystem(world);
         physicsDebugSystem = new PhysicsDebugSystem(world,camera);
+        playerControlSystem= new PlayerControlSystem(gameInput);
         engine.addSystem(physicsSystem);
         engine.addSystem(physicsDebugSystem);
+        engine.addSystem(playerControlSystem);
     }
 
     public MainGameScreen() {
