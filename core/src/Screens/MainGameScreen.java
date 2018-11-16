@@ -1,6 +1,7 @@
 package Screens;
 
 import com.archaicinsurrection.ArchaicInsurrection;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -13,8 +14,10 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import Components.BodyComponent;
 import Helpers.Figures;
 import Helpers.GameInput;
+import Managers.EntityManager;
 import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
 import Systems.PlayerControlSystem;
@@ -46,6 +49,11 @@ public class MainGameScreen implements Screen {
     private PlayerControlSystem playerControlSystem;
 
 
+    //Entity Manager
+    private EntityManager entityManager;
+    private Entity player;
+
+
 
 
 
@@ -64,6 +72,7 @@ public class MainGameScreen implements Screen {
         engine=new PooledEngine(100,500,300,1000);
         world = new World(Figures.GRAVITATIONAL_FORCES,true);
         initAshleySystems();
+        entityManager = new EntityManager(game,world,this.batch,engine);
 
 
 
@@ -89,7 +98,10 @@ public class MainGameScreen implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
+        Gdx.input
+        player=entityManager.spawnEntity("player",8,5);
     }
+
 
     @Override
     public void render(float delta) {
@@ -101,6 +113,7 @@ public class MainGameScreen implements Screen {
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         engine.update(delta);
+      //  Gdx.app.log(TAG,player.getComponent(BodyComponent.class).getBody().getPosition().toString());
     }
 
     @Override

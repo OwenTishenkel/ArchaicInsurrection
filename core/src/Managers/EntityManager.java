@@ -3,6 +3,7 @@ package Managers;
 import com.archaicinsurrection.ArchaicInsurrection;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -33,8 +34,8 @@ public class EntityManager {
         this.batch=batch;
         this.engine=engine;
         generator= new BodyGenerator(world);
-        tempPositionVector=Vector2.Zero;
-        tempDimensionsVector= Vector2.Zero;
+        tempPositionVector= new Vector2(Vector2.Zero);
+        tempDimensionsVector= new Vector2(Vector2.Zero);
 
     }
 
@@ -93,6 +94,7 @@ public class EntityManager {
     private Entity addBodyComponent(Entity entity,String entityName,int x, int y) {
         tempPositionVector.x=x;
         tempPositionVector.y=y;
+      //  Gdx.app.log("Entity Manager: ",tempPositionVector.toString());
         BodyComponent bodyComponent = engine.createComponent(BodyComponent.class);
         FixtureDef fdef = new FixtureDef();
     //method used to build the body
@@ -103,7 +105,11 @@ public class EntityManager {
                 tempDimensionsVector.x=1;
                 tempDimensionsVector.y=1;
 
-                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,tempDimensionsVector, BodyDef.BodyType.KinematicBody,1,fdef));
+
+
+                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.KinematicBody,1,fdef));
+               // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);//Shouldn't be needed due to entity in setBody but just in case
