@@ -36,6 +36,7 @@ public class MainGameScreen implements Screen {
 
     //box2d
     private World world;
+    private CollisionManager collisionManager;
 
 
     //Controls
@@ -72,6 +73,9 @@ public class MainGameScreen implements Screen {
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
         world = new World(Figures.GRAVITATIONAL_FORCES,true);
+        collisionManager =new CollisionManager();
+        world.setContactListener(collisionManager);
+        
         initAshleySystems();
         entityManager = new EntityManager(game,world,this.batch,engine);
 
