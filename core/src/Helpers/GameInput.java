@@ -27,6 +27,7 @@ private boolean left,right,up,down;
         boolean keyProcessed = false;
         switch(keycode) {
             case Input.Keys.A:
+
                 left=true;
                 keyProcessed = true;
                 break;

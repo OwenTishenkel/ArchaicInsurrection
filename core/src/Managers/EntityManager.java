@@ -48,6 +48,7 @@ public class EntityManager {
             addTypeComponent(entity,entityName);
             addCollisionComponent(entity);
             addStateComponent(entity,entityName);
+            addPlayerComponent(entity);
             break;
         }
 

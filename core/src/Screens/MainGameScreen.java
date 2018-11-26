@@ -68,6 +68,7 @@ public class MainGameScreen implements Screen {
         camera =new OrthographicCamera();
         gameViewport = new FitViewport(Figures.VIRTUALWIDTH,Figures.VIRTUALHEIGHT, camera);
         camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
+
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
         world = new World(Figures.GRAVITATIONAL_FORCES,true);
@@ -98,7 +99,7 @@ public class MainGameScreen implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
-        Gdx.input
+        Gdx.input.setInputProcessor(gameInput);
         player=entityManager.spawnEntity("player",8,5);
     }
 
