@@ -21,6 +21,20 @@ public class CollisionManager implements ContactListener{
     public void beginContact(Contact contact) {
         Gdx.app.log("Contact", "");
         Fixture fa = contact.getFixtureA();
+        Fixture fb= contact.getFixtureB();
+        
+        if(fa.getBody().getUserData() instanceof Entity){
+            Entity entity = (Entity) fa.getBody().getUserData();
+            
+            
+            
+            
+        }
+        else if(fb.getBody().getUserData() instanceof Entity) {
+        Entity entity = (Entity) fb.getBody().getUserData();
+        
+        }
+        
 
 
 
