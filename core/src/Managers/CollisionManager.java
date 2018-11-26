@@ -25,6 +25,7 @@ public class CollisionManager implements ContactListener{
         
         if(fa.getBody().getUserData() instanceof Entity){
             Entity entity = (Entity) fa.getBody().getUserData();
+            entityCollision(entity,fb);
             
             
             
@@ -32,16 +33,36 @@ public class CollisionManager implements ContactListener{
         }
         else if(fb.getBody().getUserData() instanceof Entity) {
         Entity entity = (Entity) fb.getBody().getUserData();
+            entityCollision(entity,fa);
         
         }
         
-
-
-
+    }
+    
+    private void entityCollision(Entity entity, Fixture fixture) {
+        if(fixture.getBody().getUserData() instanceof Entity) {
+            Entity collisionEntity = (Entity) fixture.getBody().getUserData;
+            
+            CollisionComponent collisionA = entity.getComponent(CollisionComponent.class);
+            CollisionComponent collisionB = collisionEntity.getComponent(CollisionComponent.class);
+            if(collisionA != null) {
+            collissionA.setCollidedEntity(collisionEntity);
+                
+            }
+            else if(collisionB !=null){
+            collisionB.setCollidedEntity(entity);
+            
+            }
+          
+            
+        }
+        
+        
     }
 
     @Override
     public void endContact(Contact contact) {
+         Gdx.app.log("End Contact", "");
 
     }
 
