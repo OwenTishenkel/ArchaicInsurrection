@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import Components.BodyComponent;
 import Helpers.Figures;
 import Helpers.GameInput;
+import Managers.CollisionManager;
 import Managers.EntityManager;
 import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
