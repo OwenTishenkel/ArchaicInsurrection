@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import Components.BodyComponent;
 import Helpers.Figures;
 import Helpers.GameInput;
+import Helpers.LevelCollisionGenerator;
 import Managers.CollisionManager;
 import Managers.EntityManager;
 import Systems.PhysicsDebugSystem;
@@ -55,6 +57,13 @@ public class MainGameScreen implements Screen {
     private EntityManager entityManager;
     private Entity player;
 
+    //Level Generator
+    private LevelCollisionGenerator levelCollisionGenerator;
+    private Entity ground;
+
+    //temp variables
+    private Vector2 tempPosition;
+    private Vector2 tempDimensions;
 
 
 
@@ -67,6 +76,12 @@ public class MainGameScreen implements Screen {
      //Setup
         this.batch = batch;
         this.game = game;
+
+
+
+
+
+
         camera =new OrthographicCamera();
         gameViewport = new FitViewport(Figures.VIRTUALWIDTH,Figures.VIRTUALHEIGHT, camera);
         camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
@@ -79,6 +94,7 @@ public class MainGameScreen implements Screen {
         
         initAshleySystems();
         entityManager = new EntityManager(game,world,this.batch,engine);
+        levelCollisionGenerator=new LevelCollisionGenerator(world,engine);
 
 
 
@@ -106,6 +122,8 @@ public class MainGameScreen implements Screen {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
         Gdx.input.setInputProcessor(gameInput);
         player=entityManager.spawnEntity("player",8,5);
+        ground=levelCollisionGenerator.createCollisionLevel();
+
     }
 
 
