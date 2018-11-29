@@ -76,6 +76,9 @@ public class MainGameScreen implements Screen {
      //Setup
         this.batch = batch;
         this.game = game;
+        
+        tempDimensions=new Vector2(Vector2.Zero);
+        tempPosition=new Vector2(Vector2.Zero);
 
 
 
@@ -122,7 +125,13 @@ public class MainGameScreen implements Screen {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
         Gdx.input.setInputProcessor(gameInput);
         player=entityManager.spawnEntity("player",8,5);
-        ground=levelCollisionGenerator.createCollisionLevel();
+        //temp test of level collisions
+        tempPosition.x= camera.viewportWidth/2;
+            tempPosition.y = 1;
+        tempDimensions.x = camera.viewportWidth;
+        tempDimensions.y= 1;
+        
+        ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions,BodyDef.BodyType.StaticBody,1);
 
     }
 
