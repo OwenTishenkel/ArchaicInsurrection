@@ -26,7 +26,7 @@ public class LevelCollisionGenerator {
         this.world = world;
         this.engine = engine;
     }
-    public void createCollisionLevel(Vector2 position, Vector2 dimensions, BodyDef.BodyType type, int bodyType) {
+    public Entity createCollisionLevel(Vector2 position, Vector2 dimensions, BodyDef.BodyType type, int bodyType) {
         Body body;
         BodyDef bdef = new BodyDef();
         FixtureDef fdef = new FixtureDef();
@@ -101,5 +101,6 @@ public class LevelCollisionGenerator {
 
 
             engine.addEntity(levelEntity);
+        return levelEntity;
     }
 }
