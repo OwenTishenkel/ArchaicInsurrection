@@ -3,6 +3,10 @@ package Helpers;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.TextureMapObject;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -21,12 +25,37 @@ public class LevelCollisionGenerator {
     public static final String TAG =LevelCollisionGenerator.class.getSimpleName();
     private World world;
     private PooledEngine engine;
+    private TiledMap map;
+    private static final String COLLISION_LAYER = "COLLISION_LAYER";
 
     public LevelCollisionGenerator(World world, PooledEngine engine) {
         this.world = world;
         this.engine = engine;
     }
-    public Entity createCollisionLevel(Vector2 position, Vector2 dimensions, BodyDef.BodyType type, int bodyType) {
+    public Entity createCollisionLevel(TiledMap map) {
+        this.map=map;
+        MapLayer layer = map.getLayers().get(COLLISION_LAYER);
+
+        for(MapObject object : layer.getObjects()) {
+            LevelGeometry geometry = null;
+            if(object instanceof TextureMapObject) {
+                continue;
+            }
+            Shape shape;
+            BodyDef bdef = new BodyDef();
+            bdef.type = object.getProperties().get("Type",String.class);
+
+        }
+
+
+
+
+
+
+
+
+
+
         Body body;
         BodyDef bdef = new BodyDef();
         FixtureDef fdef = new FixtureDef();
@@ -103,4 +132,16 @@ public class LevelCollisionGenerator {
             engine.addEntity(levelEntity);
         return levelEntity;
     }
+public static class LevelGeometry {
+        private Shape shape;
+
+    public LevelGeometry(Shape shape) {
+        this.shape = shape;
+    }
+
+    public Shape getShape() {
+        return shape;
+    }
+}
+
 }

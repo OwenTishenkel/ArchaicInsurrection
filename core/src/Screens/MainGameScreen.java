@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -133,7 +134,7 @@ public class MainGameScreen implements Screen {
         
         Gdx.app.log(TAG," "+camera.viewportWidth);
         
-        ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions,BodyDef.BodyType.StaticBody,1);
+        ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions, BodyDef.BodyType.StaticBody,1);
 
     }
 
