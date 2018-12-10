@@ -5,11 +5,18 @@ import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.CircleMapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -43,7 +50,24 @@ public class LevelCollisionGenerator {
             }
             Shape shape;
             BodyDef bdef = new BodyDef();
-            bdef.type = object.getProperties().get("Type",String.class);
+            String type=object.getProperties().get("Type",String.class);
+
+            switch(type) {
+                case "StaticBody":
+                    bdef.type = BodyDef.BodyType.StaticBody;
+                    break;
+                case "DynamicBody":
+                    bdef.type = BodyDef.BodyType.DynamicBody;
+                    break;
+                case "KinematicBody":
+                    bdef.type = BodyDef.BodyType.KinematicBody;
+                    break;
+            }
+            if(object instanceof RectangleMapObject){
+                geometry =
+            }
+
+            //bdef.type = object.getProperties().get("Type",String.class);
 
         }
 
@@ -62,17 +86,7 @@ public class LevelCollisionGenerator {
         Entity levelEntity = engine.createEntity();
 
 
-            switch(type) {
-                case StaticBody:
-                    bdef.type = BodyDef.BodyType.StaticBody;
-                    break;
-                case DynamicBody:
-                    bdef.type = BodyDef.BodyType.DynamicBody;
-                    break;
-                case KinematicBody:
-                    bdef.type = BodyDef.BodyType.KinematicBody;
-                    break;
-            }
+
 
             Gdx.app.log("Body Generator:",bdef.position.toString());
             bdef.gravityScale = 1;
@@ -132,6 +146,65 @@ public class LevelCollisionGenerator {
             engine.addEntity(levelEntity);
         return levelEntity;
     }
+
+    private LevelGeometry getRectangle(RectangleMapObject rectangleMapObject){
+        Rectangle rectangle =rectangleMapObject.getRectangle();
+        PolygonShape polygon = new PolygonShape();
+        Vector2 size = new Vector2(rectangle.x+rectangle.width/2,rectangle.y+rectangle.height/2);
+        polygon.setAsBox(rectangle.width/2,rectangle.height/2,size,0.0f);
+
+        return new LevelGeometry(polygon);
+
+        /*shape = new PolygonShape();
+        ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+        bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
+    }
+    private LevelGeometry getPolygon(PolygonMapObject polygonMapObject){
+        PolygonShape polygon =polygonMapObject.getPolygon();
+       float[]vertices = polygonMapObject.getPolygon().getTransformedVertices();
+       //todo fix any errors with polygon shape if there are any
+        polygon.set(vertices);
+
+        return new LevelGeometry(polygon);
+
+        /*shape = new PolygonShape();
+        ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+        bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
+    }
+    private LevelGeometry getPolyline(PolylineMapObject polylineMapObject){
+     float[]vertices = polylineMapObject.getPolyline().getTransformedVertices();
+     Vector2[] worldVertices = new Vector2[vertices.length/2];
+     for(int i=0;i<vertices.length; i++) {
+         worldVertices[i] = new Vector2();
+         worldVertices[i].x = vertices[i * 2];
+         worldVertices[i].y = vertices[(i*2)+1];
+     }
+        ChainShape chainShape = new ChainShape();
+        chainShape.createChain(worldVertices);
+        return new LevelGeometry(chainShape);
+
+        /*shape = new PolygonShape();
+        ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+        bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
+    }
+    private LevelGeometry getCircle(CircleMapObject circleMapObject){
+        Circle circle =circleMapObject.getCircle();
+        CircleShape circleShape =new CircleShape();
+        circleShape.setRadius(circle.radius);
+        circleShape.setPosition(circle.x,circle.y);
+        Vector2 size = new Vector2(rectangle.x+rectangle.width/2,rectangle.y+rectangle.height/2);
+        polygon.setAsBox(rectangle.width/2,rectangle.height/2,size,0.0f);
+
+        return new LevelGeometry(polygon);
+
+        /*shape = new PolygonShape();
+        ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+        bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
+    }
+
+
+
+
 public static class LevelGeometry {
         private Shape shape;
 
