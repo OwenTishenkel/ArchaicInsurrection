@@ -22,6 +22,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 
 import Components.BodyComponent;
 import Components.TransformComponent;
@@ -33,11 +34,13 @@ public class LevelCollisionGenerator {
     private World world;
     private PooledEngine engine;
     private TiledMap map;
+    private Array<Body> levelBodies;
     private static final String COLLISION_LAYER = "COLLISION_LAYER";
 
     public LevelCollisionGenerator(World world, PooledEngine engine) {
         this.world = world;
         this.engine = engine;
+        levelBodies = new Array<Body>();
     }
     public Entity createCollisionLevel(TiledMap map) {
         this.map=map;
@@ -64,87 +67,78 @@ public class LevelCollisionGenerator {
                     break;
             }
             if(object instanceof RectangleMapObject){
-                geometry =
+                geometry = getRectangle((RectangleMapObject)object);
+                shape= geometry.getShape();
+            }
+           else if(object instanceof  PolylineMapObject){
+                geometry = getPolyline((PolylineMapObject)object);
+                shape= geometry.getShape();
+            }
+            else if(object instanceof  PolygonMapObject){
+                geometry = getPolygon((PolygonMapObject)object);
+                shape= geometry.getShape();
+            }
+            else if(object instanceof  PolylineMapObject){
+                geometry = getPolyline((PolylineMapObject)object);
+                shape= geometry.getShape();
+            }
+            else if(object instanceof  CircleMapObject){
+                geometry = getCircle((CircleMapObject) object);
+                shape= geometry.getShape();
+            }
+            else {
+            Gdx.app.log(TAG,"Unrecognised Map Shape :"+object.toString());
+            continue;
             }
 
-            //bdef.type = object.getProperties().get("Type",String.class);
-
-        }
-
-
-
-
-
-
-
-
-
-
-        Body body;
-        BodyDef bdef = new BodyDef();
-        FixtureDef fdef = new FixtureDef();
-        Entity levelEntity = engine.createEntity();
-
-
-
-
-            Gdx.app.log("Body Generator:",bdef.position.toString());
-            bdef.gravityScale = 1;
-
-
-            Shape shape=new CircleShape();
-
-            switch(bodyType) {
-                case 0:
-                default:
-                    shape = new CircleShape();
-                    shape.setRadius(dimensions.x/2);
-                    bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);
-                    break;
-                case 1:
-                    shape = new PolygonShape();
-                    ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
-                    bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);
-                    break;
-
-            }
-
-            body = world.createBody(bdef);
-
-            //fdef needs to collide with all dynamic entities
-            fdef.filter.categoryBits=Figures.LEVEL;
-            fdef.filter.maskBits=Figures.PLAYER |Figures.ENEMY;
-
-
-
-
-            fdef.shape = shape;
+            FixtureDef fdef = new FixtureDef();
+            fdef.shape =shape;
+            fdef.isSensor= false;
             fdef.density = 1f;
             fdef.restitution = 0.5f;
             fdef.friction= 0.1f;
 
-            fdef.isSensor = false;
 
-            body.createFixture(fdef).setUserData(levelEntity);
+
+            fdef.filter.categoryBits=Figures.LEVEL;
+            fdef.filter.maskBits=Figures.PLAYER |Figures.ENEMY;
+
+            Body body =world.createBody(bdef);
+            Entity levelEntity = engine.createEntity();
+            body.createFixture(fdef);
+
+
 
             //Add components to level entity.
 
             BodyComponent bodyComponent = engine.createComponent(BodyComponent.class);
             bodyComponent.setBody(body);
+            bodyComponent.getBody().setUserData(levelEntity);
             TypeComponent typeComponent = engine.createComponent(TypeComponent.class);
             typeComponent.setType(Figures.LEVEL);
+            TransformComponent transformComponent=engine.createComponent(TransformComponent.class);
+            transformComponent.setPosition(body.getLocalCenter());
 
             levelEntity.add(bodyComponent);
             levelEntity.add(typeComponent);
+            levelEntity.add(transformComponent);
 
 
 
 
-            shape.dispose();
+
 
 
             engine.addEntity(levelEntity);
-        return levelEntity;
+            fdef.shape = null;
+            shape.dispose();
+
+
+
+            //bdef.type = object.getProperties().get("Type",String.class);
+
+        }
+
     }
 
     private LevelGeometry getRectangle(RectangleMapObject rectangleMapObject){
@@ -160,7 +154,7 @@ public class LevelCollisionGenerator {
         bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
     }
     private LevelGeometry getPolygon(PolygonMapObject polygonMapObject){
-        PolygonShape polygon =polygonMapObject.getPolygon();
+        PolygonShape polygon = new PolygonShape();
        float[]vertices = polygonMapObject.getPolygon().getTransformedVertices();
        //todo fix any errors with polygon shape if there are any
         polygon.set(vertices);
@@ -191,11 +185,10 @@ public class LevelCollisionGenerator {
         Circle circle =circleMapObject.getCircle();
         CircleShape circleShape =new CircleShape();
         circleShape.setRadius(circle.radius);
-        circleShape.setPosition(circle.x,circle.y);
-        Vector2 size = new Vector2(rectangle.x+rectangle.width/2,rectangle.y+rectangle.height/2);
-        polygon.setAsBox(rectangle.width/2,rectangle.height/2,size,0.0f);
+        circleShape.setPosition(new Vector2(circle.x,circle.y));
 
-        return new LevelGeometry(polygon);
+
+        return new LevelGeometry(circleShape);
 
         /*shape = new PolygonShape();
         ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
