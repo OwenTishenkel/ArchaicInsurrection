@@ -35,14 +35,16 @@ public class LevelCollisionGenerator {
     private PooledEngine engine;
     private TiledMap map;
     private Array<Body> levelBodies;
+    private Array<Entity> levelEntities;
     private static final String COLLISION_LAYER = "COLLISION_LAYER";
 
     public LevelCollisionGenerator(World world, PooledEngine engine) {
         this.world = world;
         this.engine = engine;
         levelBodies = new Array<Body>();
+        levelEntities= new Array<Enitity>();
     }
-    public Entity createCollisionLevel(TiledMap map) {
+    public void createCollisionLevel(TiledMap map) {
         this.map=map;
         MapLayer layer = map.getLayers().get(COLLISION_LAYER);
 
@@ -132,6 +134,8 @@ public class LevelCollisionGenerator {
             engine.addEntity(levelEntity);
             fdef.shape = null;
             shape.dispose();
+           // levelBodies.add(body);
+            levelEntities.add(levelEntity);
 
 
 
@@ -209,5 +213,18 @@ public static class LevelGeometry {
         return shape;
     }
 }
+    
+    public void dispose() {
+    for(Entity entity: levelEntities) {
+        BodyComponent bodyComponent = entity.getComponent(BodyComponent.class);
+        if(bodyComponent.getBody()!=null) {
+            world.destroyBody(bodyComponent.getBody());
+        }
+        engine.removeEntity(entity);
+    
+        }
+        levelEntities.clear();
+    }
+    
 
 }
