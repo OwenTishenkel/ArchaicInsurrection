@@ -3,12 +3,17 @@ package Screens;
 import com.archaicinsurrection.ArchaicInsurrection;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -61,6 +66,8 @@ public class MainGameScreen implements Screen {
     //Level Generator
     private LevelCollisionGenerator levelCollisionGenerator;
     private Entity ground;
+    private OrthogonalTiledMapRenderer mapRenderer;
+    private TiledMap map;
 
     //temp variables
     private Vector2 tempPosition;
@@ -101,6 +108,13 @@ public class MainGameScreen implements Screen {
         levelCollisionGenerator=new LevelCollisionGenerator(world,engine);
 
 
+        // todo need to change how map is loaded when implementing asset management
+        map = new TmxMapLoader().load("TestMap.tmx");
+        mapRenderer = new OrthogonalTiledMapRenderer(map,1/16,this.batch);
+        levelCollisionGenerator.createCollisionLevel(map);
+
+
+
 
 
 
@@ -134,7 +148,7 @@ public class MainGameScreen implements Screen {
         
         Gdx.app.log(TAG," "+camera.viewportWidth);
         
-        ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions, BodyDef.BodyType.StaticBody,1);
+       // ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions, BodyDef.BodyType.StaticBody,1);
 
     }
 
@@ -148,6 +162,14 @@ public class MainGameScreen implements Screen {
 
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
+      /*  mapRenderer.getBatch().begin();
+        mapRenderer.renderTileLayer((TiledMapTileLayer)map.getLayers().get("Tiled number from bottom"));*/
+        mapRenderer.setView((OrthographicCamera)gameViewport.getCamera());
+      mapRenderer.render();
+
+
         engine.update(delta);
       //  Gdx.app.log(TAG,player.getComponent(BodyComponent.class).getBody().getPosition().toString());
     }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
- <properties>
-  <property name="Type" value="StaticBody"/>
- </properties>
  <tileset firstgid="1" source="TestTileSet.tsx"/>
+ <tileset firstgid="17" source="TestTileSetFixed.tsx"/>
  <layer name="Base Layer" width="40" height="40">
   <data encoding="csv">
 1,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,2684354563,1,
@@ -92,17 +90,14 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="MAP_SPAWN_LAYER">
+ <objectgroup name="MAP_SPAWN_LAYER" visible="0">
   <object id="29" x="400.5" y="475.5">
    <properties>
     <property name="Spawn" value="Player"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="COLLISION_LAYER">
-  <properties>
-   <property name="Type" value="BodyDef.BodyType.StaticBody"/>
-  </properties>
+ <objectgroup name="COLLISION_LAYER" visible="0">
   <object id="2" x="16" y="7.5">
    <properties>
     <property name="Type" value="StaticBody"/>
