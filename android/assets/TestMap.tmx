@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="31">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
  <properties>
   <property name="Type" value="StaticBody"/>
  </properties>
@@ -206,30 +206,11 @@
     <property name="Type" value="StaticBody"/>
    </properties>
   </object>
-  <object id="22" x="415.5" y="224" width="48.5" height="15">
+  <object id="31" x="382" y="240">
    <properties>
     <property name="Type" value="StaticBody"/>
    </properties>
-  </object>
-  <object id="23" x="448.5" y="111.5" width="15" height="114.5">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
-  </object>
-  <object id="24" x="335.5" y="111.5" width="115" height="16">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
-  </object>
-  <object id="25" x="336.5" y="123.5" width="15" height="116.5">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
-  </object>
-  <object id="26" x="336" y="224.5" width="48" height="15">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
+   <polygon points="0,0 3,-17 -32,-15 -31,-112 65,-111 66,-19 33,-15 35,2 80,0 81,-127 -48,-128 -47,-1 -1,2 0,0"/>
   </object>
  </objectgroup>
 </map>
