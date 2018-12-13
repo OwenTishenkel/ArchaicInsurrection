@@ -42,7 +42,7 @@ public class LevelCollisionGenerator {
         this.world = world;
         this.engine = engine;
         levelBodies = new Array<Body>();
-        levelEntities= new Array<Enitity>();
+        levelEntities= new Array<Entity>();
     }
     public void createCollisionLevel(TiledMap map) {
         this.map=map;
