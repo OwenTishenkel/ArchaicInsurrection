@@ -109,7 +109,8 @@ public class MainGameScreen implements Screen {
 
 
         // todo need to change how map is loaded when implementing asset management
-        map = new TmxMapLoader().load("TestMap.tmx");
+        //todo Fix this broken piece of shit
+        map = new TmxMapLoader().load(Gdx.files.internal("TestMap.tmx").file().getAbsolutePath());
         mapRenderer = new OrthogonalTiledMapRenderer(map,1/16,this.batch);
         levelCollisionGenerator.createCollisionLevel(map);
 
