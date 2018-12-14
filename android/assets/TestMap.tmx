@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="49">
  <tileset firstgid="1" source="TestTileSet.tsx"/>
  <tileset firstgid="17" source="TestTileSetFixed.tsx"/>
  <layer name="Base Layer" width="40" height="40">
@@ -90,20 +90,14 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="MAP_SPAWN_LAYER" visible="0">
+ <objectgroup name="MAP_SPAWN_LAYER">
   <object id="29" x="400.5" y="475.5">
    <properties>
     <property name="Spawn" value="Player"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="COLLISION_LAYER" visible="0">
-  <object id="2" x="16" y="7.5">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
-   <polygon points="0,0 0.5,9 -8,9.5 -8,614.5 0.5,615.5 -0.5,623.5 607.5,624 607.5,615.5 615.5,616 616,8.5 606.5,8 607,0 14,0 5.5,-9 -17,-8.5 -16,9.5 -15.5,45.5 -15.5,120 -15,220 -15,339.5 -15.5,528.5 -15.5,633 111.5,633 240.5,633 624.5,632.5 625,-7.5 52,-8.5 5.5,-8.5 13,-0.5"/>
-  </object>
+ <objectgroup name="COLLISION_LAYER">
   <object id="3" x="79.5" y="62.5">
    <properties>
     <property name="Type" value="StaticBody"/>
@@ -201,11 +195,75 @@
     <property name="Type" value="StaticBody"/>
    </properties>
   </object>
-  <object id="31" x="382" y="240">
+  <object id="32" x="335.5" y="112" width="128.5" height="16">
    <properties>
     <property name="Type" value="StaticBody"/>
    </properties>
-   <polygon points="0,0 3,-17 -32,-15 -31,-112 65,-111 66,-19 33,-15 35,2 80,0 81,-127 -48,-128 -47,-1 -1,2 0,0"/>
+  </object>
+  <object id="33" x="448.5" y="127" width="15.5" height="112.5">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="34" x="416.5" y="223.5" width="32.5" height="16">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="35" x="335" y="225" width="49.5" height="13.5">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="36" x="336" y="128" width="16.5" height="97.5">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="37" x="-0.666667" y="624" width="16.6667" height="16">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="38" x="624" y="624" width="16.6667" height="16.6667">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="42" x="624.667" y="-0.666667" width="14" height="16.6667">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="43" x="0" y="0" width="16" height="15.3333">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="44" x="-0.666667" y="14.6667" width="9.33333" height="608.667">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="45" x="14.6667" y="-1.33333" width="486.667" height="8.66667">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="46" x="498.667" y="0" width="125.333" height="7.33333">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="47" x="630.667" y="16.6667" width="9.33333" height="607.333">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="48" x="16" y="632" width="607.333" height="6.66667">
+   <properties>
+    <property name="Type" value="StaticBody"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

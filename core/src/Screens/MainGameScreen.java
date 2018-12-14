@@ -84,7 +84,8 @@ public class MainGameScreen implements Screen {
      //Setup
         this.batch = batch;
         this.game = game;
-        
+
+
         tempDimensions=new Vector2(Vector2.Zero);
         tempPosition=new Vector2(Vector2.Zero);
 
@@ -92,26 +93,34 @@ public class MainGameScreen implements Screen {
 
 
 
-
+       // Gdx.app.log(TAG, "In Constructor of MainGameScreen class before camera");
         camera =new OrthographicCamera();
         gameViewport = new FitViewport(Figures.VIRTUALWIDTH,Figures.VIRTUALHEIGHT, camera);
         camera.position.set(gameViewport.getWorldWidth()/2,gameViewport.getWorldHeight()/2,0);
+        //Gdx.app.log(TAG, "In Constructor of MainGameScreen class after camera is set");
 
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
         world = new World(Figures.GRAVITATIONAL_FORCES,true);
+       // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after world, engine, and game input are created");
         collisionManager =new CollisionManager();
         world.setContactListener(collisionManager);
+      //  Gdx.app.log(TAG, "In Constructor of MainGameScreen class after collision manager setup");
         
         initAshleySystems();
+       // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after ashley systems set up");
         entityManager = new EntityManager(game,world,this.batch,engine);
+       // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after entity manager");
         levelCollisionGenerator=new LevelCollisionGenerator(world,engine);
+      //  Gdx.app.log(TAG, "In Constructor of MainGameScreen class after level collision generator");
 
 
         // todo need to change how map is loaded when implementing asset management
         //todo Fix this broken piece of shit
-        map = new TmxMapLoader().load(Gdx.files.internal("TestMap.tmx").file().getAbsolutePath());
+        map = new TmxMapLoader().load("TestMap.tmx");
+       // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after map loading");
         mapRenderer = new OrthogonalTiledMapRenderer(map,1/16,this.batch);
+        Gdx.app.log(TAG, "In Constructor of MainGameScreen class after map renderer");
         levelCollisionGenerator.createCollisionLevel(map);
 
 

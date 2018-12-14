@@ -45,6 +45,7 @@ public class LevelCollisionGenerator {
         levelEntities= new Array<Entity>();
     }
     public void createCollisionLevel(TiledMap map) {
+        Gdx.app.log(TAG, "In createCollisionLevel()");
         this.map=map;
         MapLayer layer = map.getLayers().get(COLLISION_LAYER);
 
@@ -172,18 +173,19 @@ public class LevelCollisionGenerator {
     private LevelGeometry getPolyline(PolylineMapObject polylineMapObject){
      float[]vertices = polylineMapObject.getPolyline().getTransformedVertices();
      Vector2[] worldVertices = new Vector2[vertices.length/2];
-     for(int i=0;i<vertices.length; i++) {
+     for(int i=0;i<vertices.length/2; i++) {
+         Gdx.app.log(TAG, "i="+i);
          worldVertices[i] = new Vector2();
          worldVertices[i].x = vertices[i * 2];
-         worldVertices[i].y = vertices[(i*2)+1];
+         worldVertices[i].y = vertices[i*2+1];
      }
         ChainShape chainShape = new ChainShape();
         chainShape.createChain(worldVertices);
         return new LevelGeometry(chainShape);
 
-        /*shape = new PolygonShape();
-        ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
-        bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
+        //*shape = new PolygonShape();
+        //((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+      //  bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*//*
     }
     private LevelGeometry getCircle(CircleMapObject circleMapObject){
         Circle circle =circleMapObject.getCircle();
