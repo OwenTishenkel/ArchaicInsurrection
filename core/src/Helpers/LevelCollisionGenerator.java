@@ -159,6 +159,7 @@ public class LevelCollisionGenerator {
         bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);*/
     }
     private LevelGeometry getPolygon(PolygonMapObject polygonMapObject){
+        Gdx.app.log(TAG, "In getPolygon");
         PolygonShape polygon = new PolygonShape();
        float[]vertices = polygonMapObject.getPolygon().getTransformedVertices();
        //todo fix any errors with polygon shape if there are any
