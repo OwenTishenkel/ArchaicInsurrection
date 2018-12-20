@@ -27,6 +27,7 @@ public class EntityManager {
     private BodyGenerator generator;
     private Vector2 tempPositionVector;
     private Vector2 tempDimensionsVector;
+    private String TAG=EntityManager.class.getSimpleName();
 
     public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch,PooledEngine engine) {
         this.archaicInsurrection=archaicInsurrection;
@@ -102,7 +103,9 @@ public class EntityManager {
         switch(entityName) {
             case"player"://Creating Interactions and Body of Player entity
                 fdef.filter.categoryBits= Figures.PLAYER;
-                fdef.filter.maskBits=Figures.ENEMY |Figures.LEVEL;
+                fdef.filter.maskBits= Figures.LEVEL;//|Figures.ENEMY);
+                Gdx.app.log(TAG, "After Player mask and category bits");
+
                 tempDimensionsVector.x=1;
                 tempDimensionsVector.y=1;
 
@@ -114,6 +117,9 @@ public class EntityManager {
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);//Shouldn't be needed due to entity in setBody but just in case
+               Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
+
+
                 break;
 
             case"tier1":
@@ -124,8 +130,6 @@ public class EntityManager {
 
 
         }
-
-
 
 
 

@@ -118,7 +118,8 @@ public class LevelCollisionGenerator {
 
 
             fdef.filter.categoryBits=Figures.LEVEL;
-            fdef.filter.maskBits=Figures.PLAYER |Figures.ENEMY;
+            fdef.filter.maskBits=Figures.PLAYER ;//|Figures.ENEMY);
+            Gdx.app.log(TAG, "After Level mask and category bits");
 
             Body body =world.createBody(bdef);
             Entity levelEntity = engine.createEntity();
@@ -131,6 +132,8 @@ public class LevelCollisionGenerator {
             BodyComponent bodyComponent = engine.createComponent(BodyComponent.class);
             bodyComponent.setBody(body);
             bodyComponent.getBody().setUserData(levelEntity);
+            Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
+
             TypeComponent typeComponent = engine.createComponent(TypeComponent.class);
             typeComponent.setType(Figures.LEVEL);
             TransformComponent transformComponent=engine.createComponent(TransformComponent.class);

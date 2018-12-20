@@ -62,6 +62,7 @@ public class BodyGenerator {
         fdef.restitution = 0.5f;
         fdef.friction= 0.1f;
 
+
         fdef.isSensor = false;
 
         body.createFixture(fdef).setUserData(entity);

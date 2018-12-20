@@ -150,7 +150,7 @@ public class MainGameScreen implements Screen {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
         Gdx.input.setInputProcessor(gameInput);
 
-        player=entityManager.spawnEntity("player",8,5);
+        player=entityManager.spawnEntity("player",6,5);
         //temp test of level collisions
         tempPosition.x= 0;
             tempPosition.y = 1;
@@ -166,9 +166,10 @@ public class MainGameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.app.log(TAG, "In Render method of MainGameScreen class");
-        //camera.update();
+        //Gdx.app.log(TAG, "In Render method of MainGameScreen class");
 
+        camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
+        camera.update();
 
 
         Gdx.gl.glClearColor(0,0,0,1);
@@ -177,6 +178,7 @@ public class MainGameScreen implements Screen {
 
       /*  mapRenderer.getBatch().begin();
         mapRenderer.renderTileLayer((TiledMapTileLayer)map.getLayers().get("Tiled number from bottom"));*/
+        //mapRenderer.setView(camera);
         mapRenderer.setView((OrthographicCamera)gameViewport.getCamera());
       mapRenderer.render();
 

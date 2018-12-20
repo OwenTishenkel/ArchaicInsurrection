@@ -13,7 +13,7 @@ import Components.CollisionComponent;
 
 public class CollisionManager implements ContactListener{
 
-
+    private static final String TAG = CollisionManager.class.getSimpleName();
 
 
 
@@ -43,9 +43,10 @@ public class CollisionManager implements ContactListener{
     }
     
     private void entityCollision(Entity entity, Fixture fixture) {
+        Gdx.app.log(TAG, "In entityCollision Method Entity:"+entity.toString());
         if(fixture.getBody().getUserData() instanceof Entity) {
             Entity collisionEntity = (Entity) fixture.getBody().getUserData();
-            
+            Gdx.app.log(TAG, "In entityCollision Method collisionEntity:"+collisionEntity);
             CollisionComponent collisionA = entity.getComponent(CollisionComponent.class);
             CollisionComponent collisionB = collisionEntity.getComponent(CollisionComponent.class);
             if(collisionA != null) {
