@@ -15,10 +15,9 @@ public class CollisionManager implements ContactListener{
 
     private static final String TAG = CollisionManager.class.getSimpleName();
 
-
-
-
-
+    public CollisionManager() {
+        Gdx.app.log("CollisionManager was created","");
+    }
 
     @Override
     public void beginContact(Contact contact) {

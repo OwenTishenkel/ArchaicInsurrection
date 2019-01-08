@@ -125,6 +125,8 @@ public class LevelCollisionGenerator {
             Entity levelEntity = engine.createEntity();
             body.createFixture(fdef);
 
+            //debugging
+            body.setActive(true);
 
 
             //Add components to level entity.
@@ -167,7 +169,7 @@ public class LevelCollisionGenerator {
         Ellipse ellipse =ellipseMapObject.getEllipse();
         CircleShape circleShape =new CircleShape();
         circleShape.setRadius((ellipse.height/2)/Figures.PPM);
-        circleShape.setPosition(new Vector2((ellipse.x+ellipse.height/2)/Figures.PPM,(ellipse.y+ellipse.width/2)/Figures.PPM));
+        circleShape.setPosition(new Vector2((ellipse.x+ellipse.width/2)/Figures.PPM,(ellipse.y+ellipse.height/2)/Figures.PPM));
 
 
         return new LevelGeometry(circleShape);

@@ -101,7 +101,7 @@ public class MainGameScreen implements Screen {
 
         gameInput=new GameInput(gameViewport);
         engine=new PooledEngine(100,500,300,1000);
-        world = new World(Figures.GRAVITATIONAL_FORCES,true);
+        world = new World(Figures.GRAVITATIONAL_FORCES,false);
        // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after world, engine, and game input are created");
         collisionManager =new CollisionManager();
         world.setContactListener(collisionManager);

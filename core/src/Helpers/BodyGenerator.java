@@ -35,11 +35,11 @@ public class BodyGenerator {
                 break;
         }
 
-        Gdx.app.log("Body Generator:",bdef.position.toString());
+
         bdef.gravityScale = 1;
 
 
-        Shape shape=new CircleShape();
+        Shape shape;
 
         switch(bodyType) {
             case 0:
@@ -50,12 +50,12 @@ public class BodyGenerator {
                 break;
             case 1:
                 shape = new PolygonShape();
-                ((PolygonShape)shape).setAsBox(dimensions.x,dimensions.y);
+                ((PolygonShape)shape).setAsBox(dimensions.x/2,dimensions.y/2);
                 bdef.position.set(position.x+dimensions.x/2, position.y+dimensions.y/2);
                 break;
 
         }
-
+        Gdx.app.log("Body Generator:",bdef.position.toString());
         body = world.createBody(bdef);
         fdef.shape = shape;
         fdef.density = 1f;
@@ -66,6 +66,9 @@ public class BodyGenerator {
         fdef.isSensor = false;
 
         body.createFixture(fdef).setUserData(entity);
+
+        //debugging
+        body.setActive(true);
         shape.dispose();
 
         return body;

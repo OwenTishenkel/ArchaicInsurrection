@@ -98,6 +98,6 @@ public class ArchaicInsurrection extends Game {
 	public void dispose () {
         Gdx.app.log(TAG,"in DISPOSE Method of main Game class ");
 		batch.dispose();
-		img.dispose();
+		//img.dispose();
 	}
 }

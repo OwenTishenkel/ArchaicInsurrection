@@ -101,7 +101,7 @@ public class EntityManager {
         FixtureDef fdef = new FixtureDef();
     //method used to build the body
         switch(entityName) {
-            case"player"://Creating Interactions and Body of Player entity
+            case "player"://Creating Interactions and Body of Player entity
                 fdef.filter.categoryBits= Figures.PLAYER;
                 fdef.filter.maskBits= Figures.LEVEL;//|Figures.ENEMY);
                 Gdx.app.log(TAG, "After Player mask and category bits");
