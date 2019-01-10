@@ -150,7 +150,9 @@ public class MainGameScreen implements Screen {
         Gdx.app.log(TAG, "In show method of MainGameScreen class");
         Gdx.input.setInputProcessor(gameInput);
 
-        player=entityManager.spawnEntity("player",6,5);
+
+       // player=entityManager.spawnEntity("player",6,5);
+        entityManager.spawnEntities(map);
         //temp test of level collisions
         tempPosition.x= 0;
             tempPosition.y = 1;

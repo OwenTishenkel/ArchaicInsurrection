@@ -91,7 +91,7 @@
 </data>
  </layer>
  <objectgroup name="MAP_SPAWN_LAYER">
-  <object id="29" x="400.5" y="441.5">
+  <object id="29" x="400" y="441">
    <properties>
     <property name="Spawn" value="Player"/>
    </properties>

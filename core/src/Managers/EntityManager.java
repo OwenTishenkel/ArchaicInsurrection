@@ -5,10 +5,15 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
+
+import java.util.ArrayList;
 
 import Components.BodyComponent;
 import Components.CollisionComponent;
@@ -28,6 +33,7 @@ public class EntityManager {
     private Vector2 tempPositionVector;
     private Vector2 tempDimensionsVector;
     private String TAG=EntityManager.class.getSimpleName();
+    private ArrayList<Entity> entities;
 
     public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch,PooledEngine engine) {
         this.archaicInsurrection=archaicInsurrection;
@@ -37,14 +43,29 @@ public class EntityManager {
         generator= new BodyGenerator(world);
         tempPositionVector= new Vector2(Vector2.Zero);
         tempDimensionsVector= new Vector2(Vector2.Zero);
+        entities = new ArrayList<Entity>();
 
     }
+    public void spawnEntities(TiledMap map){
+
+        MapLayer layer= map.getLayers().get("MAP_SPAWM_LAYER");
+        for(MapObject object:layer.getObjects()) {
+           String entityName= object.getProperties().get("Spawn",String.class);
+           int x = (int)object.getProperties().get("x");
+            int y = (int)object.getProperties().get("y");
+            entities.add(spawnEntity(entityName,x,y));
+
+        }
+
+
+    }
+
 
     public Entity spawnEntity(String entityName, int x, int y) {
 
         Entity entity  = engine.createEntity();
         switch(entityName) {
-            case "player":
+            case "Player":
             addBodyComponent(entity,entityName,x,y);
             addTypeComponent(entity,entityName);
             addCollisionComponent(entity);
