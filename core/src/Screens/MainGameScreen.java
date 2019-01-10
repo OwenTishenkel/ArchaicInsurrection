@@ -119,7 +119,7 @@ public class MainGameScreen implements Screen {
         //todo Fix this broken piece of shit
         map = new TmxMapLoader().load("TestMap.tmx");
        // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after map loading");
-        mapRenderer = new OrthogonalTiledMapRenderer(map,1/16,this.batch);
+        mapRenderer = new OrthogonalTiledMapRenderer(map,1/16f,this.batch);
         Gdx.app.log(TAG, "In Constructor of MainGameScreen class after map renderer");
         levelCollisionGenerator.createCollisionLevel(map);
 
