@@ -112,7 +112,7 @@ public class EntityManager {
 
 
                 bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
-                        tempDimensionsVector, BodyDef.BodyType.KinematicBody,1,fdef));
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
                // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
