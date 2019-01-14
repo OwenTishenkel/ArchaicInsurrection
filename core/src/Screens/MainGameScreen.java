@@ -169,8 +169,9 @@ public class MainGameScreen implements Screen {
     @Override
     public void render(float delta) {
         //Gdx.app.log(TAG, "In Render method of MainGameScreen class");
-
-        camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
+       // camera.position.set(entityManager.playerLocationX("Player",map),entityManager.playerLocationX("Player",map),0);
+    //   camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
+       camera.position.set(400,200,0);
         camera.update();
 
 

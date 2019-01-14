@@ -46,13 +46,40 @@ public class EntityManager {
         entities = new ArrayList<Entity>();
 
     }
+    public float playerLocationX(String entityName,TiledMap map){
+        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
+        float x=0;
+        for(MapObject object:layer.getObjects()) {
+        if(object.getProperties().get("Spawn",String.class)==entityName) {
+             x = object.getProperties().get("x",Float.class);
+
+        }
+
+        }
+        return x;
+
+    }
+    public float playerLocationY(String entityName,TiledMap map){
+        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
+        float y=0;
+        for(MapObject object:layer.getObjects()) {
+            if(object.getProperties().get("Spawn",String.class)==entityName) {
+                y = object.getProperties().get("y",Float.class);
+
+            }
+
+        }
+        return y;
+
+    }
     public void spawnEntities(TiledMap map){
 
-        MapLayer layer= map.getLayers().get("MAP_SPAWM_LAYER");
+        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
         for(MapObject object:layer.getObjects()) {
            String entityName= object.getProperties().get("Spawn",String.class);
-           int x = (int)object.getProperties().get("x");
-            int y = (int)object.getProperties().get("y");
+
+           int x = object.getProperties().get("x",Float.class).intValue();
+            int y = object.getProperties().get("y",Float.class).intValue();
             entities.add(spawnEntity(entityName,x,y));
 
         }
@@ -65,7 +92,7 @@ public class EntityManager {
 
         Entity entity  = engine.createEntity();
         switch(entityName) {
-            case "Player":
+            case "player":
             addBodyComponent(entity,entityName,x,y);
             addTypeComponent(entity,entityName);
             addCollisionComponent(entity);

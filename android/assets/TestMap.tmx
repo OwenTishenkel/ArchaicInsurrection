@@ -93,7 +93,7 @@
  <objectgroup name="MAP_SPAWN_LAYER">
   <object id="29" x="400" y="441">
    <properties>
-    <property name="Spawn" value="Player"/>
+    <property name="Spawn" value="player"/>
    </properties>
   </object>
  </objectgroup>

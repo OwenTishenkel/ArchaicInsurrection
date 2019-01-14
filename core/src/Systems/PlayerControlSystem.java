@@ -3,6 +3,7 @@ package Systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.Gdx;
 
 import Components.BodyComponent;
 import Components.PlayerComponent;
@@ -29,6 +30,8 @@ public class PlayerControlSystem extends IteratingSystem {
 
 
         if(gameInput.isLeft()) {
+            //Gdx.app.log("Left", "is detected.");
+
             bodyComponent.getBody().setLinearVelocity(-1f,0f);
             stateComponent.setDirection(StateComponent.DIRECTION.LEFT);
             stateComponent.setState(StateComponent.STATE.MOVING);
