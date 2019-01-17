@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import Components.BodyComponent;
 import Components.CollisionComponent;
+import Components.HealthComponent;
 import Components.PlayerComponent;
 import Components.StateComponent;
 import Components.TypeComponent;
@@ -101,6 +102,9 @@ public class EntityManager {
             addCollisionComponent(entity);
             addStateComponent(entity,entityName);
             addPlayerComponent(entity);
+            addHealthComponent(entity);
+
+
             break;
         }
 
@@ -132,6 +136,11 @@ public class EntityManager {
     private Entity addPlayerComponent(Entity entity) {
         PlayerComponent playerComponent = engine.createComponent(PlayerComponent.class);
         entity.add(playerComponent);
+        return entity;
+    }
+    private Entity addHealthComponent(Entity entity) {
+        HealthComponent healthComponent = engine.createComponent(HealthComponent.class);
+        entity.add(healthComponent);
         return entity;
     }
 
