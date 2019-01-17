@@ -153,6 +153,7 @@ public class MainGameScreen implements Screen {
 
        // player=entityManager.spawnEntity("player",6,5);
         entityManager.spawnEntities(map);
+        player=entityManager.getEntities().get(0);
         //temp test of level collisions
         tempPosition.x= 0;
             tempPosition.y = 1;
@@ -170,8 +171,8 @@ public class MainGameScreen implements Screen {
     public void render(float delta) {
         //Gdx.app.log(TAG, "In Render method of MainGameScreen class");
        // camera.position.set(entityManager.playerLocationX("Player",map),entityManager.playerLocationX("Player",map),0);
-    //   camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
-       camera.position.set(400,200,0);
+       camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
+       //camera.position.set(400/16,200/16,0);
         camera.update();
 
 

@@ -80,11 +80,14 @@ public class EntityManager {
 
            int x = object.getProperties().get("x",Float.class).intValue();
             int y = object.getProperties().get("y",Float.class).intValue();
-            entities.add(spawnEntity(entityName,x,y));
+            entities.add(spawnEntity(entityName,x/Figures.PPM,y/Figures.PPM));
 
         }
 
 
+    }
+    public ArrayList<Entity> getEntities(){
+        return entities;
     }
 
 
