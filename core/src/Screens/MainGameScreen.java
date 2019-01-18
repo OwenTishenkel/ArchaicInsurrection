@@ -21,6 +21,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import Components.AttackComponent;
 import Components.BodyComponent;
 import Helpers.Figures;
 import Helpers.GameInput;
@@ -161,10 +162,13 @@ public class MainGameScreen implements Screen {
         tempDimensions.y= 1;
         
         Gdx.app.log(TAG," "+camera.viewportWidth);
+
+
         
        // ground=levelCollisionGenerator.createCollisionLevel(tempPosition,tempDimensions, BodyDef.BodyType.StaticBody,1);
 
     }
+
 
 
     @Override
@@ -174,6 +178,7 @@ public class MainGameScreen implements Screen {
        camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
        //camera.position.set(400/16,200/16,0);
         camera.update();
+        player.getComponent(AttackComponent.class).attack(player,entityManager);
 
 
         Gdx.gl.glClearColor(0,0,0,1);
@@ -185,6 +190,8 @@ public class MainGameScreen implements Screen {
         //mapRenderer.setView(camera);
         mapRenderer.setView((OrthographicCamera)gameViewport.getCamera());
       mapRenderer.render();
+        //Gdx.app.log(TAG, "Attack Component test");
+        player.getComponent(AttackComponent.class).attack(player,entityManager);
 
 
         engine.update(delta);

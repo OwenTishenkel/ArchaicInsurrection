@@ -15,6 +15,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import java.util.ArrayList;
 
+import Components.AttackComponent;
 import Components.BodyComponent;
 import Components.CollisionComponent;
 import Components.HealthComponent;
@@ -103,6 +104,7 @@ public class EntityManager {
             addStateComponent(entity,entityName);
             addPlayerComponent(entity);
             addHealthComponent(entity);
+            addAttackComponent(entity);
 
 
             break;
@@ -148,6 +150,13 @@ public class EntityManager {
     private Entity addCollisionComponent(Entity entity) {
         CollisionComponent collisionComponent =engine.createComponent(CollisionComponent.class);
         entity.add(collisionComponent);
+
+
+        return entity;
+    }
+    private Entity addAttackComponent(Entity entity) {
+        AttackComponent attackComponent =engine.createComponent(AttackComponent.class);
+        entity.add(attackComponent);
 
 
         return entity;
