@@ -2,9 +2,12 @@ package Helpers;
 
 import com.badlogic.ashley.core.ComponentMapper;
 
+import Components.AttackComponent;
 import Components.BodyComponent;
 import Components.CollisionComponent;
+import Components.HealthComponent;
 import Components.PlayerComponent;
+import Components.ProjectileComponent;
 import Components.StateComponent;
 import Components.TransformComponent;
 import Components.TypeComponent;
@@ -16,4 +19,7 @@ public static final ComponentMapper<CollisionComponent> collisionComponent = Com
     public static final ComponentMapper<StateComponent> stateComponent = ComponentMapper.getFor(StateComponent.class);
     public static final ComponentMapper<TransformComponent> transformComponent = ComponentMapper.getFor(TransformComponent.class);
     public static final ComponentMapper<TypeComponent> typeComponent = ComponentMapper.getFor(TypeComponent.class);
+    public static final ComponentMapper<AttackComponent> attackComponent = ComponentMapper.getFor(AttackComponent.class);
+    public static final ComponentMapper<HealthComponent> healthComponent = ComponentMapper.getFor(HealthComponent.class);
+    public static final ComponentMapper<ProjectileComponent> projectileComponent = ComponentMapper.getFor(ProjectileComponent.class);
 }

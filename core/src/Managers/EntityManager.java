@@ -108,6 +108,11 @@ public class EntityManager {
 
 
             break;
+            case "testenemy":
+
+
+
+                break;
         }
 
 
