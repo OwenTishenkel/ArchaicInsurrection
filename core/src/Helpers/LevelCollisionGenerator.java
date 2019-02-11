@@ -118,7 +118,7 @@ public class LevelCollisionGenerator {
 
 
             fdef.filter.categoryBits=Figures.LEVEL;
-            fdef.filter.maskBits=Figures.PLAYER ;//|Figures.ENEMY);
+            fdef.filter.maskBits=Figures.PLAYER |Figures.ENEMY;
             Gdx.app.log(TAG, "After Level mask and category bits");
 
             Body body =world.createBody(bdef);
