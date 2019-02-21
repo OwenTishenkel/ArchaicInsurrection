@@ -13,7 +13,13 @@ public class Figures {
     public static final short OTHER =2;
     public static final short LEVEL =4;
     public static final short PLAYER =8;
-    public static final short ENEMY =16;;
+    public static final short ENEMY =16;
+    public static final short REPAIRPACK =32;
+    public static final short PLAYERATTACK =64;
+    public static final short ENEMYATTACK =128;
+
+
+
 
 
     //World gravity

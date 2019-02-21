@@ -108,8 +108,21 @@ public class EntityManager {
 
 
             break;
-            case "testenemy":
+            case "tier1":
+                addBodyComponent(entity,entityName,x,y);
+                addTypeComponent(entity,entityName);
+                addCollisionComponent(entity);
+                addStateComponent(entity,entityName);
+                addHealthComponent(entity);
+                addAttackComponent(entity);
 
+
+
+                break;
+            case "repairPack" :
+                addBodyComponent(entity,entityName,x,y);
+                addTypeComponent(entity,entityName);
+                addCollisionComponent(entity);
 
 
                 break;
@@ -130,6 +143,10 @@ public class EntityManager {
                 stateComponent.setDirection(StateComponent.DIRECTION.DOWN);
                 stateComponent.setState(StateComponent.STATE.IDLE);
                 break;
+                default:
+                    stateComponent.setDirection(StateComponent.DIRECTION.DOWN);
+                    stateComponent.setState(StateComponent.STATE.IDLE);
+                    break;
 
 
         }
@@ -177,8 +194,8 @@ public class EntityManager {
         switch(entityName) {
             case "player"://Creating Interactions and Body of Player entity
                 fdef.filter.categoryBits= Figures.PLAYER;
-                fdef.filter.maskBits= Figures.LEVEL;//|Figures.ENEMY);
-                Gdx.app.log(TAG, "After Player mask and category bits");
+                fdef.filter.maskBits= Figures.LEVEL|Figures.ENEMY|Figures.OTHER|Figures.REPAIRPACK|Figures.ENEMYATTACK;
+               // Gdx.app.log(TAG, "After Player mask and category bits");
 
                 tempDimensionsVector.x=1;
                 tempDimensionsVector.y=1;
@@ -191,16 +208,52 @@ public class EntityManager {
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);//Shouldn't be needed due to entity in setBody but just in case
-               Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
+              // Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
 
 
                 break;
 
             case"tier1":
+                fdef.filter.categoryBits= Figures.ENEMY;
+                fdef.filter.maskBits= Figures.LEVEL|Figures.ENEMY|Figures.PLAYER|Figures.PLAYERATTACK;
+                // Gdx.app.log(TAG, "After Player mask and category bits");
+
+                tempDimensionsVector.x=1;
+                tempDimensionsVector.y=1;
+
+
+
+                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
+                // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
+                bodyComponent.setActive(true);
+                bodyComponent.getBody().setLinearDamping(3f);
+                bodyComponent.getBody().setUserData(entity);
+                break;
 
             case"mini1":
+                break;
 
             case"boss":
+                break;
+            case"repairPack":
+                fdef.filter.categoryBits= Figures.REPAIRPACK;
+                fdef.filter.maskBits= Figures.LEVEL|Figures.PLAYER;
+                // Gdx.app.log(TAG, "After Player mask and category bits");
+
+                tempDimensionsVector.x=1;
+                tempDimensionsVector.y=1;
+
+
+
+                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
+                // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
+                bodyComponent.setActive(true);
+                bodyComponent.getBody().setLinearDamping(3f);
+                bodyComponent.getBody().setUserData(entity);
+                break;
+
 
 
         }
@@ -219,8 +272,15 @@ public class EntityManager {
         switch(entityName) {
             case "player":
                 type=Figures.PLAYER;
+                break;
+            case"tier1":
+                type=Figures.ENEMY;
+                break;
+            case"repairPack":
+                type=Figures.REPAIRPACK;
             default:
                 type=Figures.OTHER;
+                break;
         }
         typeComponent.setType(type);
         entity.add(typeComponent);
