@@ -20,14 +20,14 @@ public class CollisionSystem extends IteratingSystem {
 
     private PooledEngine engine;
     private World world;
-    private Entity player;
+
     private ArchaicInsurrection game;
 
-    public CollisionSystem( PooledEngine engine, World world, Entity player, ArchaicInsurrection game) {
+    public CollisionSystem( PooledEngine engine, World world, ArchaicInsurrection game) {
         super(Family.all(CollisionComponent.class).get());
         this.engine = engine;
         this.world = world;
-        this.player = player;
+
         this.game = game;
     }
 
@@ -123,6 +123,7 @@ public class CollisionSystem extends IteratingSystem {
             }
 
         }
+        collision.setCollidedEntity(null);
 
     }
 }

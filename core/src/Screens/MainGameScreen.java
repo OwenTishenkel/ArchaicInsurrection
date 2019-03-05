@@ -2,6 +2,7 @@ package Screens;
 
 import com.archaicinsurrection.ArchaicInsurrection;
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -23,6 +24,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import Components.AttackComponent;
 import Components.BodyComponent;
+import Components.PlayerComponent;
 import Helpers.Figures;
 import Helpers.GameInput;
 import Helpers.LevelCollisionGenerator;
@@ -139,7 +141,7 @@ public class MainGameScreen implements Screen {
         physicsSystem = new PhysicsSystem(world);
         physicsDebugSystem = new PhysicsDebugSystem(world,camera);
         playerControlSystem= new PlayerControlSystem(gameInput);
-        collisionSystem=new CollisionSystem(engine,world,player,game);
+        collisionSystem=new CollisionSystem(engine,world,game);
         engine.addSystem(physicsSystem);
         engine.addSystem(physicsDebugSystem);
         engine.addSystem(playerControlSystem);
@@ -173,16 +175,27 @@ public class MainGameScreen implements Screen {
 
     }
 
+    private void updateCamera(){
+       for( Entity player: engine.getEntitiesFor(Family.all(PlayerComponent.class).get())) {
+           BodyComponent bodyComponent = player.getComponent(BodyComponent.class);
+           camera.position.set(bodyComponent.getBody().getPosition(),0);
+       }
+       camera.update();
+
+
+    }
+
 
 
     @Override
     public void render(float delta) {
         //Gdx.app.log(TAG, "In Render method of MainGameScreen class");
        // camera.position.set(entityManager.playerLocationX("Player",map),entityManager.playerLocationX("Player",map),0);
-       camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
+      camera.position.set(player.getComponent(BodyComponent.class).getBody().getPosition().x,player.getComponent(BodyComponent.class).getBody().getPosition().y,0);
        //camera.position.set(400/16,200/16,0);
-        camera.update();
-        player.getComponent(AttackComponent.class).attack(player,entityManager);
+       camera.update();
+        //updateCamera();
+       // player.getComponent(AttackComponent.class).attack(player,entityManager);
 
 
         Gdx.gl.glClearColor(0,0,0,1);
@@ -195,7 +208,7 @@ public class MainGameScreen implements Screen {
         mapRenderer.setView((OrthographicCamera)gameViewport.getCamera());
       mapRenderer.render();
         //Gdx.app.log(TAG, "Attack Component test");
-        player.getComponent(AttackComponent.class).attack(player,entityManager);
+       // player.getComponent(AttackComponent.class).attack(player,entityManager);
 
 
         engine.update(delta);
