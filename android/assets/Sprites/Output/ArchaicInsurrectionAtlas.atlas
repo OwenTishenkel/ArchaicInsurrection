@@ -1,0 +1,1278 @@
+
+ArchaicInsurrectionAtlas.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+1hpEnemy_Back
+  rotate: false
+  xy: 1924, 1374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+1hpEnemy_Back
+  rotate: false
+  xy: 1924, 1374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+1hpEnemy_Back
+  rotate: false
+  xy: 2, 218
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+1hpEnemy_Back
+  rotate: false
+  xy: 68, 284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+1hpEnemy_Front
+  rotate: false
+  xy: 134, 382
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+1hpEnemy_Front
+  rotate: false
+  xy: 134, 382
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+1hpEnemy_Front
+  rotate: false
+  xy: 200, 416
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+1hpEnemy_Front
+  rotate: false
+  xy: 266, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+1hpEnemy_Left
+  rotate: false
+  xy: 1990, 1506
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+1hpEnemy_Left
+  rotate: false
+  xy: 1990, 1506
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+1hpEnemy_Left
+  rotate: false
+  xy: 2024, 1540
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+1hpEnemy_Left
+  rotate: false
+  xy: 2024, 1540
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+1hpEnemy_Right
+  rotate: false
+  xy: 1924, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+1hpEnemy_Right
+  rotate: false
+  xy: 1924, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+1hpEnemy_Right
+  rotate: false
+  xy: 1942, 1374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+1hpEnemy_Right
+  rotate: false
+  xy: 1942, 1374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+2hpEnemy_Back
+  rotate: false
+  xy: 2, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+2hpEnemy_Back
+  rotate: false
+  xy: 2, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+2hpEnemy_Back
+  rotate: false
+  xy: 20, 218
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+2hpEnemy_Back
+  rotate: false
+  xy: 68, 266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+2hpEnemy_Front
+  rotate: false
+  xy: 86, 284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+2hpEnemy_Front
+  rotate: false
+  xy: 86, 284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+2hpEnemy_Front
+  rotate: false
+  xy: 134, 364
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+2hpEnemy_Front
+  rotate: false
+  xy: 152, 382
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+2hpEnemy_Left
+  rotate: false
+  xy: 218, 416
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+2hpEnemy_Left
+  rotate: false
+  xy: 218, 416
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+2hpEnemy_Left
+  rotate: false
+  xy: 284, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+2hpEnemy_Left
+  rotate: false
+  xy: 284, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+2hpEnemy_Right
+  rotate: false
+  xy: 1990, 1488
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+2hpEnemy_Right
+  rotate: false
+  xy: 1990, 1488
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+2hpEnemy_Right
+  rotate: false
+  xy: 1924, 1338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+2hpEnemy_Right
+  rotate: false
+  xy: 1924, 1338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+3hpEnemy_Back
+  rotate: false
+  xy: 1942, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+3hpEnemy_Back
+  rotate: false
+  xy: 1942, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+3hpEnemy_Back
+  rotate: false
+  xy: 1960, 1374
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+3hpEnemy_Back
+  rotate: false
+  xy: 2, 182
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+3hpEnemy_Front
+  rotate: false
+  xy: 20, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+3hpEnemy_Front
+  rotate: false
+  xy: 20, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+3hpEnemy_Front
+  rotate: false
+  xy: 38, 218
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+3hpEnemy_Front
+  rotate: false
+  xy: 68, 248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+3hpEnemy_Left
+  rotate: false
+  xy: 86, 266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+3hpEnemy_Left
+  rotate: false
+  xy: 86, 266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+3hpEnemy_Left
+  rotate: false
+  xy: 104, 284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+3hpEnemy_Left
+  rotate: false
+  xy: 104, 284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+3hpEnemy_Right
+  rotate: false
+  xy: 134, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+3hpEnemy_Right
+  rotate: false
+  xy: 134, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+3hpEnemy_Right
+  rotate: false
+  xy: 152, 364
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+3hpEnemy_Right
+  rotate: false
+  xy: 152, 364
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+4hpEnemy_Back
+  rotate: false
+  xy: 170, 382
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+4hpEnemy_Back
+  rotate: false
+  xy: 170, 382
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+4hpEnemy_Back
+  rotate: false
+  xy: 236, 416
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+4hpEnemy_Back
+  rotate: false
+  xy: 302, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+4hpEnemy_Front
+  rotate: false
+  xy: 1990, 1470
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+4hpEnemy_Front
+  rotate: false
+  xy: 1990, 1470
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+4hpEnemy_Front
+  rotate: false
+  xy: 1924, 1320
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+4hpEnemy_Front
+  rotate: false
+  xy: 1942, 1338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+4hpEnemy_Left
+  rotate: false
+  xy: 1960, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+4hpEnemy_Left
+  rotate: false
+  xy: 1960, 1356
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+4hpEnemy_Left
+  rotate: false
+  xy: 2, 164
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+4hpEnemy_Left
+  rotate: false
+  xy: 2, 164
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+4hpEnemy_Right
+  rotate: false
+  xy: 20, 182
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+4hpEnemy_Right
+  rotate: false
+  xy: 20, 182
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+4hpEnemy_Right
+  rotate: false
+  xy: 38, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+4hpEnemy_Right
+  rotate: false
+  xy: 38, 200
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+5hpEnemy_Back
+  rotate: false
+  xy: 86, 248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+5hpEnemy_Back
+  rotate: false
+  xy: 86, 248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+5hpEnemy_Back
+  rotate: false
+  xy: 104, 266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+5hpEnemy_Back
+  rotate: false
+  xy: 134, 328
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+5hpEnemy_Front
+  rotate: false
+  xy: 152, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+5hpEnemy_Front
+  rotate: false
+  xy: 152, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+5hpEnemy_Front
+  rotate: false
+  xy: 170, 364
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+5hpEnemy_Front
+  rotate: false
+  xy: 320, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+5hpEnemy_Left
+  rotate: false
+  xy: 1990, 1452
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+5hpEnemy_Left
+  rotate: false
+  xy: 1990, 1452
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+5hpEnemy_Left
+  rotate: false
+  xy: 1924, 1302
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+5hpEnemy_Left
+  rotate: false
+  xy: 1924, 1302
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+5hpEnemy_Right
+  rotate: false
+  xy: 1942, 1320
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+5hpEnemy_Right
+  rotate: false
+  xy: 1942, 1320
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+5hpEnemy_Right
+  rotate: false
+  xy: 1960, 1338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+5hpEnemy_Right
+  rotate: false
+  xy: 1960, 1338
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+ArmorSymbol
+  rotate: false
+  xy: 2, 146
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+AttackButton
+  rotate: false
+  xy: 2, 402
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+BlueDoor
+  rotate: false
+  xy: 20, 164
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueKeycard
+  rotate: false
+  xy: 38, 182
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueMiniBoss_Back
+  rotate: false
+  xy: 104, 248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueMiniBoss_Back
+  rotate: false
+  xy: 104, 248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+BlueMiniBoss_Back
+  rotate: false
+  xy: 134, 310
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlueMiniBoss_Back
+  rotate: false
+  xy: 152, 328
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+BlueMiniBoss_Front
+  rotate: false
+  xy: 170, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueMiniBoss_Front
+  rotate: false
+  xy: 170, 346
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+BlueMiniBoss_Front
+  rotate: false
+  xy: 338, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlueMiniBoss_Front
+  rotate: false
+  xy: 1990, 1434
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+BlueMiniBoss_Left
+  rotate: false
+  xy: 1924, 1284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueMiniBoss_Left
+  rotate: false
+  xy: 1924, 1284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+BlueMiniBoss_Left
+  rotate: false
+  xy: 1942, 1302
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlueMiniBoss_Left
+  rotate: false
+  xy: 1942, 1302
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+BlueMiniBoss_Right
+  rotate: false
+  xy: 1960, 1320
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlueMiniBoss_Right
+  rotate: false
+  xy: 1960, 1320
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+BlueMiniBoss_Right
+  rotate: false
+  xy: 2, 128
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlueMiniBoss_Right
+  rotate: false
+  xy: 2, 128
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Continue
+  rotate: false
+  xy: 134, 434
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+Credit
+  rotate: false
+  xy: 1924, 1392
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+DamagedOverlay
+  rotate: false
+  xy: 20, 146
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+DeathText
+  rotate: false
+  xy: 2, 468
+  size: 1920, 1088
+  orig: 1920, 1088
+  offset: 0, 0
+  index: -1
+DownButton
+  rotate: false
+  xy: 1924, 1492
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+EnemyAttack_MiniBlue
+  rotate: false
+  xy: 38, 164
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_MiniRed
+  rotate: false
+  xy: 152, 310
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_lv1
+  rotate: false
+  xy: 170, 328
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_lv2
+  rotate: false
+  xy: 356, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_lv3
+  rotate: false
+  xy: 1990, 1416
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_lv4
+  rotate: false
+  xy: 1924, 1266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+EnemyAttack_lv5
+  rotate: false
+  xy: 1942, 1284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Forge
+  rotate: false
+  xy: 1960, 1302
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+LeftButton
+  rotate: false
+  xy: 2, 336
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Load
+  rotate: false
+  xy: 2, 236
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+MainObjective_Active
+  rotate: false
+  xy: 2, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+MainObjective_Active
+  rotate: false
+  xy: 20, 128
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+MainObjective_Active
+  rotate: false
+  xy: 38, 146
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+MainObjective_Active
+  rotate: false
+  xy: 170, 310
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+MenuButton
+  rotate: false
+  xy: 68, 402
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Play
+  rotate: false
+  xy: 68, 302
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+PlayerAttack_lv1
+  rotate: false
+  xy: 374, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PlayerAttack_lv2
+  rotate: false
+  xy: 1990, 1398
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PlayerAttack_lv3
+  rotate: false
+  xy: 1924, 1248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PlayerAttack_lv4
+  rotate: false
+  xy: 1942, 1266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PlayerAttack_lv5
+  rotate: false
+  xy: 1960, 1284
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Player_Back
+  rotate: false
+  xy: 2, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Player_Back
+  rotate: false
+  xy: 2, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Player_Back
+  rotate: false
+  xy: 20, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Player_Back
+  rotate: false
+  xy: 38, 128
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Player_Front
+  rotate: false
+  xy: 392, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Player_Front
+  rotate: false
+  xy: 392, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Player_Front
+  rotate: false
+  xy: 1924, 1230
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Player_Front
+  rotate: false
+  xy: 1942, 1248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Player_Left
+  rotate: false
+  xy: 1960, 1266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Player_Left
+  rotate: false
+  xy: 1960, 1266
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Player_Left
+  rotate: false
+  xy: 2, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Player_Left
+  rotate: false
+  xy: 20, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Player_Right
+  rotate: false
+  xy: 38, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Player_Right
+  rotate: false
+  xy: 38, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Player_Right
+  rotate: false
+  xy: 410, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Player_Right
+  rotate: false
+  xy: 1924, 1212
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Quit
+  rotate: false
+  xy: 134, 400
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+RedDoor
+  rotate: false
+  xy: 1942, 1230
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedKeycard
+  rotate: false
+  xy: 1960, 1248
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedMiniBoss_Back
+  rotate: false
+  xy: 2, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+RedMiniBoss_Back
+  rotate: false
+  xy: 2, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+RedMiniBoss_Back
+  rotate: false
+  xy: 20, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+RedMiniBoss_Back
+  rotate: false
+  xy: 38, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+RedMiniBoss_Front
+  rotate: false
+  xy: 428, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+RedMiniBoss_Front
+  rotate: false
+  xy: 428, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+RedMiniBoss_Front
+  rotate: false
+  xy: 1924, 1194
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+RedMiniBoss_Front
+  rotate: false
+  xy: 1942, 1212
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+RedMiniBoss_Left
+  rotate: false
+  xy: 1960, 1230
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+RedMiniBoss_Left
+  rotate: false
+  xy: 1960, 1230
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+RedMiniBoss_Left
+  rotate: false
+  xy: 2, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+RedMiniBoss_Left
+  rotate: false
+  xy: 2, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+RedMiniBoss_Right
+  rotate: false
+  xy: 20, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+RedMiniBoss_Right
+  rotate: false
+  xy: 20, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+RedMiniBoss_Right
+  rotate: false
+  xy: 38, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+RedMiniBoss_Right
+  rotate: false
+  xy: 38, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+RepairButton
+  rotate: false
+  xy: 1924, 1426
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RepairKit
+  rotate: false
+  xy: 446, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RightButton
+  rotate: false
+  xy: 2, 270
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Save
+  rotate: false
+  xy: 200, 434
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+SteamTank_Back
+  rotate: false
+  xy: 1924, 1176
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+SteamTank_Back
+  rotate: false
+  xy: 1942, 1194
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+SteamTank_Front
+  rotate: false
+  xy: 1960, 1212
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+SteamTank_Front
+  rotate: false
+  xy: 2, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+SteamTank_Left
+  rotate: false
+  xy: 20, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+SteamTank_Left
+  rotate: false
+  xy: 38, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+SteamTank_Right
+  rotate: false
+  xy: 464, 450
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+SteamTank_Right
+  rotate: false
+  xy: 1924, 1158
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Tank_Shot
+  rotate: false
+  xy: 1942, 1176
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tank_Shot_Explode_large
+  rotate: false
+  xy: 1990, 1524
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Tank_Shot_Strong
+  rotate: false
+  xy: 1960, 1194
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tank_shot_explode
+  rotate: false
+  xy: 2, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+UpButton
+  rotate: false
+  xy: 68, 336
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+
+ArchaicInsurrectionAtlas2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Titlescreen
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1088
+  orig: 1920, 1088
+  offset: 0, 0
+  index: -1
+
+ArchaicInsurrectionAtlas3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+WinText
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1088
+  orig: 1920, 1088
+  offset: 0, 0
+  index: -1
