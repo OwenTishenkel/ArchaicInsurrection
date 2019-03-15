@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.Hashtable;
 
+import Managers.MyAssetManager;
 import Screens.EndGameScreen;
 import Screens.LoadingScreen;
 import Screens.MainGameScreen;
@@ -19,7 +20,8 @@ import Screens.MainmenuScreen;
 public class ArchaicInsurrection extends Game {
     private static final String TAG = ArchaicInsurrection.class.getSimpleName();
     SpriteBatch batch;
-    private AssetManager
+    private AssetManager assetManager;
+    public MyAssetManager myAssetManager;
 
     Texture img;
     private LoadingScreen loadingscreen;
