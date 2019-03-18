@@ -54,11 +54,15 @@ public class MyAssetManager {
     }
 
     public TiledMap getMapAsset(String filepath) {
+        TiledMap map= null;
         if(assetManager.isLoaded(filepath)) {
-            return assetManager.get(filepath,TiledMap.class);
+            map=assetManager.get(filepath,TiledMap.class);
+            return map;
         }
         else{
-            
+            Gdx.app.log(TAG,"Map is not loaded: "+filepath);
+            return map;
+
         }
     }
 }

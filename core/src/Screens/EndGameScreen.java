@@ -5,14 +5,18 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import Managers.MyAssetManager;
+
 public class EndGameScreen implements Screen {
     private static final String TAG = EndGameScreen.class.getSimpleName();
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
-    public EndGameScreen(ArchaicInsurrection game, SpriteBatch batch) {
+    private MyAssetManager myAssetManager;
+    public EndGameScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         this.batch = batch;
         this.game = game;
+        this.myAssetManager=myAssetManager;
     }
 
     public EndGameScreen() {

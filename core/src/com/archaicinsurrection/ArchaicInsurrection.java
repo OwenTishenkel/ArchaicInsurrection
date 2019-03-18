@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -39,14 +40,14 @@ public class ArchaicInsurrection extends Game {
         switch(type) {
             case LOAD:
                 if(loadingscreen==null) {
-                    loadingscreen = new LoadingScreen(this,batch);
+                    loadingscreen = new LoadingScreen(this,batch,myAssetManager);
                     screenTable.put(SCREENTYPE.LOAD, loadingscreen);
                 }
                 break;
 
             case MENU:
                 if(mainmenuscreen==null) {
-                    mainmenuscreen = new MainmenuScreen(this, batch);
+                    mainmenuscreen = new MainmenuScreen(this, batch,myAssetManager);
                     screenTable.put(SCREENTYPE.MENU, mainmenuscreen);
                 }
                 break;
@@ -54,7 +55,7 @@ public class ArchaicInsurrection extends Game {
 
             case GAME:
                 if(maingamescreen==null) {
-                    maingamescreen = new MainGameScreen(this, batch);
+                    maingamescreen = new MainGameScreen(this, batch,myAssetManager);
                     screenTable.put(SCREENTYPE.GAME, maingamescreen);
                 }
                 break;
@@ -62,7 +63,7 @@ public class ArchaicInsurrection extends Game {
 
             case END:
                 if(endgamescreen==null) {
-                    endgamescreen = new EndGameScreen(this, batch);
+                    endgamescreen = new EndGameScreen(this, batch,myAssetManager);
                     screenTable.put(SCREENTYPE.END, endgamescreen);
                 }
                 break;
@@ -86,6 +87,8 @@ public class ArchaicInsurrection extends Game {
 		batch = new SpriteBatch();
 		//img = new Texture("badlogic.jpg");
 		setScreen(SCREENTYPE.LOAD);
+		assetManager= new AssetManager(new InternalFileHandleResolver());
+		myAssetManager = new MyAssetManager(assetManager);
 
 
 	}

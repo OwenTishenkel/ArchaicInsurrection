@@ -7,15 +7,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import Managers.MyAssetManager;
+
 public class DeathScreen implements Screen {
     private static final String TAG= DeathScreen.class.getSimpleName() ;
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
+    private MyAssetManager myAssetManager;
 
-    public DeathScreen(ArchaicInsurrection game, SpriteBatch batch) {
+    public DeathScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         this.batch = batch;
         this.game = game;
+        this.myAssetManager=myAssetManager;
     }
 
 

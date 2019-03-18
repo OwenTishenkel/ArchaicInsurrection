@@ -30,6 +30,7 @@ import Helpers.GameInput;
 import Helpers.LevelCollisionGenerator;
 import Managers.CollisionManager;
 import Managers.EntityManager;
+import Managers.MyAssetManager;
 import Systems.CollisionSystem;
 import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
@@ -41,6 +42,8 @@ public class MainGameScreen implements Screen {
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
+    //assetmanager
+    private MyAssetManager myAssetManager;
     //view
     private OrthographicCamera camera;
     private Viewport gameViewport;
@@ -83,12 +86,15 @@ public class MainGameScreen implements Screen {
 
 
 
-    public MainGameScreen(ArchaicInsurrection game, SpriteBatch batch) {
+
+
+    public MainGameScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         Gdx.app.log(TAG, "In Constructor of MainGameScreen class");
 
      //Setup
         this.batch = batch;
         this.game = game;
+        this.myAssetManager = myAssetManager;
 
 
         tempDimensions=new Vector2(Vector2.Zero);

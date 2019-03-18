@@ -7,15 +7,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import Managers.MyAssetManager;
+
 public class LoadingScreen implements Screen {
     private SpriteBatch batch;
     private float timetoWait=2f;
    private Texture img;
    private ArchaicInsurrection game;
-    public LoadingScreen(ArchaicInsurrection game, SpriteBatch batch) {
+   private MyAssetManager myAssetManager;
+    public LoadingScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         this.game = game;
         this.batch=batch;
-       // img = new Texture("badlogic.jpg"); //It Can't seem to figure out what this is
+        this.myAssetManager=myAssetManager;
+        //img = new Texture(""); //It Can't seem to figure out what this is
 
     }
 

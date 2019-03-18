@@ -7,16 +7,20 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import Managers.MyAssetManager;
+
 public class MainmenuScreen implements Screen {
     private static final String TAG= MainmenuScreen.class.getSimpleName() ;
     private SpriteBatch batch;
     private Texture img;
     private ArchaicInsurrection game;
     private float timetoWait=2f;
+    private MyAssetManager myAssetManager;
 
-    public MainmenuScreen(ArchaicInsurrection game, SpriteBatch batch) {
+    public MainmenuScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         this.batch = batch;
         this.game = game;
+        this.myAssetManager=myAssetManager;
     }
 
 
