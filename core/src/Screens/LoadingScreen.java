@@ -41,6 +41,10 @@ public class LoadingScreen implements Screen {
 
 timetoWait-=delta;
         Gdx.app.log(TAG,"Time to wait: "+timetoWait);
+//Currently blocking for loading maps
+        loadingMapAssets();
+
+
 if(timetoWait<=0) {
     Gdx.app.log(TAG,"IN timetoWait if statement OF RENDER method in LoadingScreen class");
     game.setScreen(ArchaicInsurrection.SCREENTYPE.MENU);
@@ -77,6 +81,10 @@ if(timetoWait<=0) {
     public void dispose() {
         Gdx.app.log(TAG,"IN DISPOSE METHOD OF LoadingScreen CLASS");
         img.dispose();
+
+    }
+    private void loadingMapAssets(){
+        myAssetManager.loadMapAsset("TestMap.tmx"); //Dosen't work debug it
 
     }
 }
