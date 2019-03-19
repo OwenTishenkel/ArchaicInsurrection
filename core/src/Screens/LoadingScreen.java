@@ -27,6 +27,7 @@ public class LoadingScreen implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG,"IN SHOW METHOD OF LoadingScreen CLASS");
+        loadingMapAssets();
 
     }
 //
@@ -40,12 +41,12 @@ public class LoadingScreen implements Screen {
         batch.end();*/
 
 timetoWait-=delta;
-        Gdx.app.log(TAG,"Time to wait: "+timetoWait);
+     //   Gdx.app.log(TAG,"Time to wait: "+timetoWait);
 //Currently blocking for loading maps
-        loadingMapAssets();
+        myAssetManager.updateAssetLoading();
 
 
-if(timetoWait<=0) {
+if(timetoWait<=0 && myAssetManager.isAssetLoaded("TestMap.tmx")) {
     Gdx.app.log(TAG,"IN timetoWait if statement OF RENDER method in LoadingScreen class");
     game.setScreen(ArchaicInsurrection.SCREENTYPE.MENU);
     timetoWait=2;
@@ -85,6 +86,9 @@ if(timetoWait<=0) {
     }
     private void loadingMapAssets(){
         myAssetManager.loadMapAsset("TestMap.tmx"); //Dosen't work debug it
+        Gdx.app.log(TAG,"Loading:"+myAssetManager.loadCompleted());
+
+
 
     }
 }

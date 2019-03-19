@@ -44,7 +44,7 @@ public class MyAssetManager {
             assetManager.setLoader(TiledMap.class, new TmxMapLoader(assetManager.getFileHandleResolver()));
             assetManager.load(filepath, TiledMap.class);
             //we are going to block to finish loading all at once
-            assetManager.finishLoadingAsset(filepath);
+          //  assetManager.finishLoadingAsset(filepath);
             Gdx.app.log(TAG,"Map Loaded: "+filepath);
         }
         else {

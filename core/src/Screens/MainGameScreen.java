@@ -128,7 +128,7 @@ public class MainGameScreen implements Screen {
 
         // todo need to change how map is loaded when implementing asset management
         //todo Fix this broken piece of shit
-    myAssetManager.loadMapAsset("TestMap.tmx"); // For Some Reason I need to load map asset in my main game screen? Ask Walters
+   // myAssetManager.loadMapAsset("TestMap.tmx"); // For Some Reason I need to load map asset in my main game screen? Ask Walters
         map = myAssetManager.getMapAsset("TestMap.tmx");
        // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after map loading");
         mapRenderer = new OrthogonalTiledMapRenderer(map,1/16f,this.batch);

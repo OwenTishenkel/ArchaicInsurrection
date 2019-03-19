@@ -27,18 +27,20 @@ public class MainmenuScreen implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG, "In SHOW method of MainmenuScreen class");
+        myAssetManager.loadMapAsset("TestMap.tmx");
     }
 
     @Override
     public void render(float delta) {
-        Gdx.app.log(TAG, "In RENDER method of MainmenuScreen class");
+       // Gdx.app.log(TAG, "In RENDER method of MainmenuScreen class");
         Gdx.gl.glClearColor(5, 0, 90, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
         timetoWait-=delta;
-        Gdx.app.log(TAG,"Time to wait: "+timetoWait);
-        if(timetoWait<=0) {
+        myAssetManager.updateAssetLoading();
+       // Gdx.app.log(TAG,"Time to wait: "+timetoWait);
+        if(timetoWait<=0 &&myAssetManager.isAssetLoaded("TestMap.tmx")) {
             Gdx.app.log(TAG, "IN timetoWait if statement OF RENDER method in MainmenuScreen class");
             Gdx.app.log(TAG, "Jumping to MainGameScreen");
             game.setScreen(ArchaicInsurrection.SCREENTYPE.GAME);
