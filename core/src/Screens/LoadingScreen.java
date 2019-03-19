@@ -18,7 +18,7 @@ public class LoadingScreen implements Screen {
     public LoadingScreen(ArchaicInsurrection game, SpriteBatch batch, MyAssetManager myAssetManager) {
         this.game = game;
         this.batch=batch;
-        this.myAssetManager=myAssetManager;
+        this.myAssetManager= myAssetManager;
         //img = new Texture(""); //It Can't seem to figure out what this is
 
     }

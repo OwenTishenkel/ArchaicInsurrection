@@ -21,8 +21,9 @@ import Screens.MainmenuScreen;
 public class ArchaicInsurrection extends Game {
     private static final String TAG = ArchaicInsurrection.class.getSimpleName();
     SpriteBatch batch;
-    private AssetManager assetManager;
-    public MyAssetManager myAssetManager;
+    private AssetManager assetManager = new AssetManager();
+    public MyAssetManager myAssetManager = new MyAssetManager(assetManager);
+
 
     Texture img;
     private LoadingScreen loadingscreen;
