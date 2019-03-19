@@ -19,7 +19,7 @@ public class Figures {
     public static final short ENEMYATTACK =128;
 
 
-
+//Is work?
 
 
     //World gravity
