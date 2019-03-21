@@ -249,6 +249,8 @@ public class MainGameScreen implements Screen {
     public void dispose() {
         Gdx.app.log(TAG, "In dispose method of MainGameScreen class");
         world.dispose();
+        myAssetManager.dispose();
+        //map.dispose();
 
 
 
