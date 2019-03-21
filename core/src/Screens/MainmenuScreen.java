@@ -38,7 +38,7 @@ public class MainmenuScreen implements Screen {
 
 
         timetoWait-=delta;
-        myAssetManager.updateAssetLoading();
+       // myAssetManager.updateAssetLoading();
        // Gdx.app.log(TAG,"Time to wait: "+timetoWait);
         if(timetoWait<=0 &&myAssetManager.isAssetLoaded("TestMap.tmx")) {
             Gdx.app.log(TAG, "IN timetoWait if statement OF RENDER method in MainmenuScreen class");

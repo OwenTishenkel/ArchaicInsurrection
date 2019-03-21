@@ -22,7 +22,7 @@ public class ArchaicInsurrection extends Game {
     private static final String TAG = ArchaicInsurrection.class.getSimpleName();
     SpriteBatch batch;
     private AssetManager assetManager = new AssetManager();
-    public MyAssetManager myAssetManager = new MyAssetManager(assetManager);
+    public MyAssetManager myAssetManager;
 
 
     Texture img;
@@ -87,9 +87,10 @@ public class ArchaicInsurrection extends Game {
         screenTable = new Hashtable<SCREENTYPE, Screen>();
 		batch = new SpriteBatch();
 		//img = new Texture("badlogic.jpg");
+        assetManager= new AssetManager(new InternalFileHandleResolver());
+        myAssetManager = new MyAssetManager(assetManager);
 		setScreen(SCREENTYPE.LOAD);
-		assetManager= new AssetManager(new InternalFileHandleResolver());
-		myAssetManager = new MyAssetManager(assetManager);
+
 
 
 	}
