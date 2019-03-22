@@ -20,7 +20,7 @@ public class AnimationComponent implements Component, Poolable {
         return this;
     }
 
-    
+
 
     @Override
     public void reset() {
