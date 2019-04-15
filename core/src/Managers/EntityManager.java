@@ -4,7 +4,9 @@ import com.archaicinsurrection.ArchaicInsurrection;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -15,6 +17,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import java.util.ArrayList;
 
+import Components.AnimationComponent;
 import Components.AttackComponent;
 import Components.BodyComponent;
 import Components.CollisionComponent;
@@ -30,6 +33,8 @@ public class EntityManager {
     private ArchaicInsurrection archaicInsurrection;
     private World world;
     private SpriteBatch batch;
+    private MyAssetManager myAssetManager;
+    private TextureAtlas atlas;
     private PooledEngine engine;
     private BodyGenerator generator;
     private Vector2 tempPositionVector;
@@ -37,7 +42,7 @@ public class EntityManager {
     private String TAG=EntityManager.class.getSimpleName();
     private ArrayList<Entity> entities;
 
-    public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch,PooledEngine engine) {
+    public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch,PooledEngine engine,MyAssetManager myAssetManager) {
         this.archaicInsurrection=archaicInsurrection;
         this.world=world;
         this.batch=batch;
@@ -46,6 +51,8 @@ public class EntityManager {
         tempPositionVector= new Vector2(Vector2.Zero);
         tempDimensionsVector= new Vector2(Vector2.Zero);
         entities = new ArrayList<Entity>();
+        this.myAssetManager= myAssetManager;
+        atlas=myAssetManager.getTextureAsset("Sprites/Output/ArchaicInsurrectionAtlas.atlas");//!Check Here if atlas can't be found!
 
     }
     public float playerLocationX(String entityName,TiledMap map){
@@ -105,6 +112,7 @@ public class EntityManager {
             addPlayerComponent(entity);
             addHealthComponent(entity);
             addAttackComponent(entity);
+            addAnimationComponent(entity,entityName);
 
 
             break;
@@ -115,6 +123,7 @@ public class EntityManager {
                 addStateComponent(entity,entityName);
                 addHealthComponent(entity);
                 addAttackComponent(entity);
+                addAnimationComponent(entity,entityName);
 
 
 
@@ -285,6 +294,30 @@ public class EntityManager {
         typeComponent.setType(type);
         entity.add(typeComponent);
         return entity;
+    }
+    private Entity addAnimationComponent(Entity entity, String entityName){
+        AnimationComponent animationComponent = engine.createComponent(AnimationComponent.class);
+
+        switch(entityName){
+            case "player"://adding Animations to player
+                animationComponent.addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
+                        new Animation(0.25f,atlas.findRegions("Player_Back")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.DOWN,new Animation(0.25f,atlas.findRegions("Player_Front")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.LEFT,new Animation(0.25f,atlas.findRegions("Player_Left")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT,new Animation(0.25f,atlas.findRegions("Player_Right")));
+
+                break;
+            case "tier1":
+                break;
+            case "mini1":
+                break;
+            case "boss":
+                break;
+        }
+        entity.add(animationComponent);
+        return entity;
+
+
     }
 
 }

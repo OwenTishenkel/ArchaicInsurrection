@@ -20,10 +20,24 @@ public class AnimationComponent implements Component, Poolable {
         return this;
     }
 
-
+public Animation getAnimation(ANIMATIONSTATE state) {
+        return animations.get(state);
+}
+public float getTime(){
+        return time;
+}
+public void setTime(float time){
+        this.time=time;
+}
+public void setLooping(boolean isLooping){
+        this.isLooping=isLooping;
+}
 
     @Override
     public void reset() {
+        time=0.0f;
+        animations.clear();
+        isLooping=false;
 
     }
 }
