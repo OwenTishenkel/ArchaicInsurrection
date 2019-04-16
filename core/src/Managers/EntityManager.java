@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -24,6 +25,7 @@ import Components.CollisionComponent;
 import Components.HealthComponent;
 import Components.PlayerComponent;
 import Components.StateComponent;
+import Components.TextureComponent;
 import Components.TypeComponent;
 import Helpers.BodyGenerator;
 import Helpers.Figures;
@@ -313,11 +315,27 @@ public class EntityManager {
                 break;
             case "boss":
                 break;
+            case"repairPack":
+                break;
         }
         entity.add(animationComponent);
         return entity;
 
 
+    }
+    private Entity addTextureComponent(Entity entity,String entityName) {
+        TextureComponent textureComponent = engine.createComponent(TextureComponent.class);
+        switch(entityName) {
+            case "player":
+                textureComponent.setRegion((TextureRegion) entity
+                        .getComponent(AnimationComponent.class)
+                        .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
+                break;
+            case "repairPack":
+                textureComponent.setRegion(new TextureRegion());
+                break;
+        }
+        return entity;
     }
 
 }

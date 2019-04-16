@@ -10,6 +10,7 @@ import Components.HealthComponent;
 import Components.PlayerComponent;
 import Components.ProjectileComponent;
 import Components.StateComponent;
+import Components.TextureComponent;
 import Components.TransformComponent;
 import Components.TypeComponent;
 
@@ -24,4 +25,5 @@ public static final ComponentMapper<CollisionComponent> collisionComponent = Com
     public static final ComponentMapper<HealthComponent> healthComponent = ComponentMapper.getFor(HealthComponent.class);
     public static final ComponentMapper<ProjectileComponent> projectileComponent = ComponentMapper.getFor(ProjectileComponent.class);
     public static final ComponentMapper<AnimationComponent> animationComponent = ComponentMapper.getFor(AnimationComponent.class);
+    public static final ComponentMapper<TextureComponent> textureComponent = ComponentMapper.getFor(TextureComponent.class);
 }

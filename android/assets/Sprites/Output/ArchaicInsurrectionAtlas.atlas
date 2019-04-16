@@ -1159,65 +1159,72 @@ Save
   orig: 64, 32
   offset: 0, 0
   index: -1
-SteamTank_Back
+Scrap
   rotate: false
   xy: 1924, 1176
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
+  index: -1
 SteamTank_Back
   rotate: false
   xy: 1942, 1194
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 2
-SteamTank_Front
+  index: 1
+SteamTank_Back
   rotate: false
   xy: 1960, 1212
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
+  index: 2
 SteamTank_Front
   rotate: false
   xy: 2, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 2
-SteamTank_Left
+  index: 1
+SteamTank_Front
   rotate: false
   xy: 20, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
+  index: 2
 SteamTank_Left
   rotate: false
   xy: 38, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 2
-SteamTank_Right
+  index: 1
+SteamTank_Left
   rotate: false
   xy: 464, 450
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
+  index: 2
 SteamTank_Right
   rotate: false
   xy: 1924, 1158
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
+  index: 1
+SteamTank_Right
+  rotate: false
+  xy: 1942, 1176
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
   index: 2
 Tank_Shot
   rotate: false
-  xy: 1942, 1176
+  xy: 1960, 1194
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -1231,14 +1238,14 @@ Tank_Shot_Explode_large
   index: -1
 Tank_Shot_Strong
   rotate: false
-  xy: 1960, 1194
+  xy: 2, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Tank_shot_explode
   rotate: false
-  xy: 2, 2
+  xy: 20, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

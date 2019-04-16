@@ -120,7 +120,7 @@ public class MainGameScreen implements Screen {
         
         initAshleySystems();
        // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after ashley systems set up");
-        entityManager = new EntityManager(game,world,this.batch,engine);
+        //entityManager = new EntityManager(game,world,this.batch,engine);
        // Gdx.app.log(TAG, "In Constructor of MainGameScreen class after entity manager");
         levelCollisionGenerator=new LevelCollisionGenerator(world,engine);
       //  Gdx.app.log(TAG, "In Constructor of MainGameScreen class after level collision generator");
