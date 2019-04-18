@@ -331,10 +331,11 @@ public class EntityManager {
                         .getComponent(AnimationComponent.class)
                         .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
                 break;
-            case "repairPack":
-                textureComponent.setRegion(new TextureRegion());
+            case "scrap":
+                textureComponent.setRegion(new TextureRegion(atlas.findRegion("Scrap")));
                 break;
         }
+        entity.add(textureComponent);
         return entity;
     }
 
