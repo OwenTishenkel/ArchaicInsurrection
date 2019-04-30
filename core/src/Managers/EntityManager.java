@@ -24,6 +24,7 @@ import Components.BodyComponent;
 import Components.CollisionComponent;
 import Components.HealthComponent;
 import Components.PlayerComponent;
+import Components.RenderableComponent;
 import Components.StateComponent;
 import Components.TextureComponent;
 import Components.TypeComponent;
@@ -115,6 +116,7 @@ public class EntityManager {
             addHealthComponent(entity);
             addAttackComponent(entity);
             addAnimationComponent(entity,entityName);
+            addRenderableComponent(entity);
 
 
             break;
@@ -134,6 +136,7 @@ public class EntityManager {
                 addBodyComponent(entity,entityName,x,y);
                 addTypeComponent(entity,entityName);
                 addCollisionComponent(entity);
+                addRenderableComponent(entity);
 
 
                 break;
@@ -337,6 +340,12 @@ public class EntityManager {
         }
         entity.add(textureComponent);
         return entity;
+    }
+    private Entity addRenderableComponent(Entity entity){
+        RenderableComponent renderableComponent = engine.createComponent(RenderableComponent.class);
+        entity.add(renderableComponent);
+        return entity;
+
     }
 
 }
