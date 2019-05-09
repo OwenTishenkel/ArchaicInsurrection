@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="500" height="500" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="500" height="500" tilewidth="16" tileheight="16" infinite="0" nextobjectid="33">
  <tileset firstgid="1" source="ArchaicTileSet.tsx"/>
  <layer name="UnderTile Layer" width="500" height="500">
   <data encoding="csv">
@@ -2699,6 +2699,11 @@
   <object id="31" x="3794" y="7712.5" width="11" height="15">
    <properties>
     <property name="Type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="32" x="4135.64" y="7941.12">
+   <properties>
+    <property name="Spawn" value="player"/>
    </properties>
   </object>
  </objectgroup>

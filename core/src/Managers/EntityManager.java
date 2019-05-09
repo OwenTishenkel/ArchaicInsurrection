@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
@@ -27,6 +28,7 @@ import Components.PlayerComponent;
 import Components.RenderableComponent;
 import Components.StateComponent;
 import Components.TextureComponent;
+import Components.TransformComponent;
 import Components.TypeComponent;
 import Helpers.BodyGenerator;
 import Helpers.Figures;
@@ -106,9 +108,11 @@ public class EntityManager {
     public Entity spawnEntity(String entityName, int x, int y) {
 
         Entity entity  = engine.createEntity();
+        Gdx.app.log(EntityManager.class.getSimpleName(),"Created: "+entityName);
         switch(entityName) {
             case "player":
             addBodyComponent(entity,entityName,x,y);
+                addTransformComponent(entity, x,y);
             addTypeComponent(entity,entityName);
             addCollisionComponent(entity);
             addStateComponent(entity,entityName);
@@ -117,26 +121,35 @@ public class EntityManager {
             addAttackComponent(entity);
             addAnimationComponent(entity,entityName);
             addRenderableComponent(entity);
+            addTextureComponent(entity,entityName);
+
+
 
 
             break;
             case "tier1":
                 addBodyComponent(entity,entityName,x,y);
+                addTransformComponent(entity, x,y);
                 addTypeComponent(entity,entityName);
                 addCollisionComponent(entity);
                 addStateComponent(entity,entityName);
                 addHealthComponent(entity);
                 addAttackComponent(entity);
                 addAnimationComponent(entity,entityName);
+              // addTextureComponent(entity,entityName);
+
 
 
 
                 break;
             case "repairPack" :
                 addBodyComponent(entity,entityName,x,y);
+                addTransformComponent(entity, x,y);
                 addTypeComponent(entity,entityName);
                 addCollisionComponent(entity);
-                addRenderableComponent(entity);
+                //addRenderableComponent(entity);
+              // addTextureComponent(entity,entityName);
+
 
 
                 break;
@@ -334,8 +347,9 @@ public class EntityManager {
                         .getComponent(AnimationComponent.class)
                         .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
                 break;
-            case "scrap":
-                textureComponent.setRegion(new TextureRegion(atlas.findRegion("Scrap")));
+            case "tier1":
+               // textureComponent.setRegion(new TextureRegion(atlas.findRegion("Scrap")));
+                textureComponent.setRegion(new TextureRegion(atlas.findRegion("1hpEnemy")));
                 break;
         }
         entity.add(textureComponent);
@@ -346,6 +360,14 @@ public class EntityManager {
         entity.add(renderableComponent);
         return entity;
 
+    }
+    private Entity addTransformComponent(Entity entity, int x, int y) {
+        TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
+        tempPositionVector.set(x,y);
+        transformComponent.setPosition(new Vector2(0,0));
+
+        entity.add(transformComponent);
+        return entity;
     }
 
 }

@@ -35,6 +35,7 @@ import Systems.CollisionSystem;
 import Systems.PhysicsDebugSystem;
 import Systems.PhysicsSystem;
 import Systems.PlayerControlSystem;
+import Systems.RenderSystem;
 
 
 public class MainGameScreen implements Screen {
@@ -65,6 +66,7 @@ public class MainGameScreen implements Screen {
     private PhysicsDebugSystem physicsDebugSystem;
     private PlayerControlSystem playerControlSystem;
     private CollisionSystem collisionSystem;
+    private RenderSystem renderSystem;
 
 
     //Entity Manager
@@ -149,10 +151,14 @@ public class MainGameScreen implements Screen {
         physicsDebugSystem = new PhysicsDebugSystem(world,camera);
         playerControlSystem= new PlayerControlSystem(gameInput);
         collisionSystem=new CollisionSystem(engine,world,game);
+        renderSystem=new RenderSystem(batch,camera);
         engine.addSystem(physicsSystem);
         engine.addSystem(physicsDebugSystem);
         engine.addSystem(playerControlSystem);
         engine.addSystem(collisionSystem);
+        //animation system here
+        engine.addSystem(renderSystem);
+
     }
 
     public MainGameScreen() {

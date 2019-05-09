@@ -236,11 +236,5 @@
     <property name="Type" value="StaticBody"/>
    </properties>
   </object>
-  <object id="65" x="399.333" y="384">
-   <properties>
-    <property name="Type" value="StaticBody"/>
-   </properties>
-   <polygon points="0,0 20,20.6667 -16.6667,29.3333 0,-0.666667"/>
-  </object>
  </objectgroup>
 </map>
