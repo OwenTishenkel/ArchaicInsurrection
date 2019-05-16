@@ -175,8 +175,8 @@ public class MainGameScreen implements Screen {
         entityManager.spawnEntities(map);
         player=entityManager.getEntities().get(0);
         //temp test of level collisions
-        tempPosition.x= 0;
-            tempPosition.y = 1;
+        /*tempPosition.x= 0;
+            tempPosition.y = 1;*/
         tempDimensions.x = gameViewport.getWorldWidth();
         tempDimensions.y= 1;
         
@@ -226,6 +226,7 @@ public class MainGameScreen implements Screen {
 
         engine.update(delta);
       //  Gdx.app.log(TAG,player.getComponent(BodyComponent.class).getBody().getPosition().toString());
+
     }
 
     @Override

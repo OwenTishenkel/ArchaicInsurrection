@@ -32,6 +32,9 @@ public void setTime(float time){
 public void setLooping(boolean isLooping){
         this.isLooping=isLooping;
 }
+public boolean getLooping() {
+        return isLooping;
+}
 
     @Override
     public void reset() {

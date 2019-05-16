@@ -44,41 +44,43 @@ public class EntityManager {
     private BodyGenerator generator;
     private Vector2 tempPositionVector;
     private Vector2 tempDimensionsVector;
-    private String TAG=EntityManager.class.getSimpleName();
+    private String TAG = EntityManager.class.getSimpleName();
     private ArrayList<Entity> entities;
 
-    public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch,PooledEngine engine,MyAssetManager myAssetManager) {
-        this.archaicInsurrection=archaicInsurrection;
-        this.world=world;
-        this.batch=batch;
-        this.engine=engine;
-        generator= new BodyGenerator(world);
-        tempPositionVector= new Vector2(Vector2.Zero);
-        tempDimensionsVector= new Vector2(Vector2.Zero);
+    public EntityManager(ArchaicInsurrection archaicInsurrection, World world, SpriteBatch batch, PooledEngine engine, MyAssetManager myAssetManager) {
+        this.archaicInsurrection = archaicInsurrection;
+        this.world = world;
+        this.batch = batch;
+        this.engine = engine;
+        generator = new BodyGenerator(world);
+        tempPositionVector = new Vector2(Vector2.Zero);
+        tempDimensionsVector = new Vector2(Vector2.Zero);
         entities = new ArrayList<Entity>();
-        this.myAssetManager= myAssetManager;
-        atlas=myAssetManager.getTextureAsset("Sprites/Output/ArchaicInsurrectionAtlas.atlas");//!Check Here if atlas can't be found!
+        this.myAssetManager = myAssetManager;
+        atlas = myAssetManager.getTextureAsset("Sprites/Output/ArchaicInsurrectionAtlas.atlas");//!Check Here if atlas can't be found!
 
     }
-    public float playerLocationX(String entityName,TiledMap map){
-        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
-        float x=0;
-        for(MapObject object:layer.getObjects()) {
-        if(object.getProperties().get("Spawn",String.class)==entityName) {
-             x = object.getProperties().get("x",Float.class);
 
-        }
+    public float playerLocationX(String entityName, TiledMap map) {
+        MapLayer layer = map.getLayers().get("MAP_SPAWN_LAYER");
+        float x = 0;
+        for (MapObject object : layer.getObjects()) {
+            if (object.getProperties().get("Spawn", String.class) == entityName) {
+                x = object.getProperties().get("x", Float.class);
+
+            }
 
         }
         return x;
 
     }
-    public float playerLocationY(String entityName,TiledMap map){
-        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
-        float y=0;
-        for(MapObject object:layer.getObjects()) {
-            if(object.getProperties().get("Spawn",String.class)==entityName) {
-                y = object.getProperties().get("y",Float.class);
+
+    public float playerLocationY(String entityName, TiledMap map) {
+        MapLayer layer = map.getLayers().get("MAP_SPAWN_LAYER");
+        float y = 0;
+        for (MapObject object : layer.getObjects()) {
+            if (object.getProperties().get("Spawn", String.class) == entityName) {
+                y = object.getProperties().get("y", Float.class);
 
             }
 
@@ -86,75 +88,73 @@ public class EntityManager {
         return y;
 
     }
-    public void spawnEntities(TiledMap map){
 
-        MapLayer layer= map.getLayers().get("MAP_SPAWN_LAYER");
-        for(MapObject object:layer.getObjects()) {
-           String entityName= object.getProperties().get("Spawn",String.class);
+    public void spawnEntities(TiledMap map) {
 
-           int x = object.getProperties().get("x",Float.class).intValue();
-            int y = object.getProperties().get("y",Float.class).intValue();
-            entities.add(spawnEntity(entityName,x/Figures.PPM,y/Figures.PPM));
+        MapLayer layer = map.getLayers().get("MAP_SPAWN_LAYER");
+        for (MapObject object : layer.getObjects()) {
+            String entityName = object.getProperties().get("Spawn", String.class);
+
+            int x = object.getProperties().get("x", Float.class).intValue();
+            int y = object.getProperties().get("y", Float.class).intValue();
+            entities.add(spawnEntity(entityName, x / Figures.PPM, y / Figures.PPM));
 
         }
 
 
     }
-    public ArrayList<Entity> getEntities(){
+
+    public ArrayList<Entity> getEntities() {
         return entities;
     }
 
 
     public Entity spawnEntity(String entityName, int x, int y) {
 
-        Entity entity  = engine.createEntity();
-        Gdx.app.log(EntityManager.class.getSimpleName(),"Created: "+entityName);
-        switch(entityName) {
+        Entity entity = engine.createEntity();
+        Gdx.app.log(EntityManager.class.getSimpleName(), "Created: " + entityName);
+        switch (entityName) {
             case "player":
-            addBodyComponent(entity,entityName,x,y);
-                addTransformComponent(entity, x,y);
-            addTypeComponent(entity,entityName);
-            addCollisionComponent(entity);
-            addStateComponent(entity,entityName);
-            addPlayerComponent(entity);
-            addHealthComponent(entity);
-            addAttackComponent(entity);
-            addAnimationComponent(entity,entityName);
-            addRenderableComponent(entity);
-            addTextureComponent(entity,entityName);
-
-
-
-
-            break;
-            case "tier1":
-                addBodyComponent(entity,entityName,x,y);
-                addTransformComponent(entity, x,y);
-                addTypeComponent(entity,entityName);
+                addBodyComponent(entity, entityName, x, y);
+                addTransformComponent(entity, x, y);
+                addTypeComponent(entity, entityName);
                 addCollisionComponent(entity);
-                addStateComponent(entity,entityName);
+                addStateComponent(entity, entityName);
+                addPlayerComponent(entity);
                 addHealthComponent(entity);
                 addAttackComponent(entity);
-                addAnimationComponent(entity,entityName);
-              // addTextureComponent(entity,entityName);
-
-
+                addAnimationComponent(entity, entityName);
+                addRenderableComponent(entity);
+                addTextureComponent(entity, entityName);
 
 
                 break;
-            case "repairPack" :
-                addBodyComponent(entity,entityName,x,y);
-                addTransformComponent(entity, x,y);
-                addTypeComponent(entity,entityName);
+            case "tier1":
+                addBodyComponent(entity, entityName, x, y);
+                addTransformComponent(entity, x, y);
+                addTypeComponent(entity, entityName);
                 addCollisionComponent(entity);
-                //addRenderableComponent(entity);
-              // addTextureComponent(entity,entityName);
+                addStateComponent(entity, entityName);
+                addHealthComponent(entity);
+                addAttackComponent(entity);
+                addAnimationComponent(entity, entityName);
+                 addTextureComponent(entity,entityName);
+                 addRenderableComponent(entity);
 
+
+                break;
+            case "repairPack":
+                addBodyComponent(entity, entityName, x, y);
+                addTransformComponent(entity, x, y);
+                addTypeComponent(entity, entityName);
+                addCollisionComponent(entity);
+                addAnimationComponent(entity, entityName);
+                addRenderableComponent(entity);
+                addTextureComponent(entity,entityName);
 
 
                 break;
         }
-
 
 
         engine.addEntity(entity);
@@ -163,21 +163,20 @@ public class EntityManager {
 
     }
 
-    private Entity addStateComponent(Entity entity,String entityName) {
+    private Entity addStateComponent(Entity entity, String entityName) {
         StateComponent stateComponent = engine.createComponent(StateComponent.class);
-        switch(entityName) {
+        switch (entityName) {
             case "player":
                 stateComponent.setDirection(StateComponent.DIRECTION.DOWN);
                 stateComponent.setState(StateComponent.STATE.IDLE);
                 break;
-                default:
-                    stateComponent.setDirection(StateComponent.DIRECTION.DOWN);
-                    stateComponent.setState(StateComponent.STATE.IDLE);
-                    break;
+            default:
+                stateComponent.setDirection(StateComponent.DIRECTION.DOWN);
+                stateComponent.setState(StateComponent.STATE.IDLE);
+                break;
 
 
         }
-
 
 
         entity.add(stateComponent);
@@ -189,6 +188,7 @@ public class EntityManager {
         entity.add(playerComponent);
         return entity;
     }
+
     private Entity addHealthComponent(Entity entity) {
         HealthComponent healthComponent = engine.createComponent(HealthComponent.class);
         entity.add(healthComponent);
@@ -197,141 +197,148 @@ public class EntityManager {
 
 
     private Entity addCollisionComponent(Entity entity) {
-        CollisionComponent collisionComponent =engine.createComponent(CollisionComponent.class);
+        CollisionComponent collisionComponent = engine.createComponent(CollisionComponent.class);
         entity.add(collisionComponent);
 
 
         return entity;
     }
+
     private Entity addAttackComponent(Entity entity) {
-        AttackComponent attackComponent =engine.createComponent(AttackComponent.class);
+        AttackComponent attackComponent = engine.createComponent(AttackComponent.class);
         entity.add(attackComponent);
 
 
         return entity;
     }
 
-    private Entity addBodyComponent(Entity entity,String entityName,int x, int y) {
-        tempPositionVector.x=x;
-        tempPositionVector.y=y;
-      //  Gdx.app.log("Entity Manager: ",tempPositionVector.toString());
+    private Entity addBodyComponent(Entity entity, String entityName, int x, int y) {
+        tempPositionVector.x = x;
+        tempPositionVector.y = y;
+        //  Gdx.app.log("Entity Manager: ",tempPositionVector.toString());
         BodyComponent bodyComponent = engine.createComponent(BodyComponent.class);
         FixtureDef fdef = new FixtureDef();
-    //method used to build the body
-        switch(entityName) {
+        //method used to build the body
+        switch (entityName) {
             case "player"://Creating Interactions and Body of Player entity
-                fdef.filter.categoryBits= Figures.PLAYER;
-                fdef.filter.maskBits= Figures.LEVEL|Figures.ENEMY|Figures.OTHER|Figures.REPAIRPACK|Figures.ENEMYATTACK;
-               // Gdx.app.log(TAG, "After Player mask and category bits");
+                fdef.filter.categoryBits = Figures.PLAYER;
+                fdef.filter.maskBits = Figures.LEVEL | Figures.ENEMY | Figures.OTHER | Figures.REPAIRPACK | Figures.ENEMYATTACK;
+                // Gdx.app.log(TAG, "After Player mask and category bits");
 
-                tempDimensionsVector.x=1;
-                tempDimensionsVector.y=1;
+                tempDimensionsVector.x = 1;
+                tempDimensionsVector.y = 1;
 
 
-
-                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
-                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
-               // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
+                bodyComponent.setBody(generator.createBody(entity, tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody, 1, fdef));
+                // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);//Shouldn't be needed due to entity in setBody but just in case
-              // Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
+                // Gdx.app.log(TAG, "In Entity Manager User data set is"+bodyComponent.getBody().getUserData()+" and "+fdef.filter.categoryBits+" "+fdef.filter.maskBits);
 
 
                 break;
 
-            case"tier1":
-                fdef.filter.categoryBits= Figures.ENEMY;
-                fdef.filter.maskBits= Figures.LEVEL|Figures.ENEMY|Figures.PLAYER|Figures.PLAYERATTACK;
+            case "tier1":
+                fdef.filter.categoryBits = Figures.ENEMY;
+                fdef.filter.maskBits = Figures.LEVEL | Figures.ENEMY | Figures.PLAYER | Figures.PLAYERATTACK;
                 // Gdx.app.log(TAG, "After Player mask and category bits");
 
-                tempDimensionsVector.x=1;
-                tempDimensionsVector.y=1;
+                tempDimensionsVector.x = 1;
+                tempDimensionsVector.y = 1;
 
 
-
-                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
-                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
+                bodyComponent.setBody(generator.createBody(entity, tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody, 1, fdef));
                 // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);
                 break;
 
-            case"mini1":
+            case "mini1":
                 break;
 
-            case"boss":
+            case "boss":
                 break;
-            case"repairPack":
-                fdef.filter.categoryBits= Figures.REPAIRPACK;
-                fdef.filter.maskBits= Figures.LEVEL|Figures.PLAYER;
+            case "repairPack":
+                fdef.filter.categoryBits = Figures.REPAIRPACK;
+                fdef.filter.maskBits = Figures.LEVEL | Figures.PLAYER;
                 // Gdx.app.log(TAG, "After Player mask and category bits");
 
-                tempDimensionsVector.x=1;
-                tempDimensionsVector.y=1;
+                tempDimensionsVector.x = 1;
+                tempDimensionsVector.y = 1;
 
 
-
-                bodyComponent.setBody(generator.createBody(entity,tempPositionVector,
-                        tempDimensionsVector, BodyDef.BodyType.DynamicBody,1,fdef));
+                bodyComponent.setBody(generator.createBody(entity, tempPositionVector,
+                        tempDimensionsVector, BodyDef.BodyType.DynamicBody, 1, fdef));
                 // Gdx.app.log("Entity Manager after body is set: ",tempPositionVector.toString()+" Temp Position Vector: "+tempDimensionsVector.toString());
                 bodyComponent.setActive(true);
                 bodyComponent.getBody().setLinearDamping(3f);
                 bodyComponent.getBody().setUserData(entity);
                 break;
-
 
 
         }
 
 
-
-
-
-
         entity.add(bodyComponent);
         return entity;
     }
+
     private Entity addTypeComponent(Entity entity, String entityName) {
-        TypeComponent typeComponent= engine.createComponent(TypeComponent.class);
+        TypeComponent typeComponent = engine.createComponent(TypeComponent.class);
         short type;
-        switch(entityName) {
+        switch (entityName) {
             case "player":
-                type=Figures.PLAYER;
+                type = Figures.PLAYER;
                 break;
-            case"tier1":
-                type=Figures.ENEMY;
+            case "tier1":
+                type = Figures.ENEMY;
                 break;
-            case"repairPack":
-                type=Figures.REPAIRPACK;
+            case "repairPack":
+                type = Figures.REPAIRPACK;
             default:
-                type=Figures.OTHER;
+                type = Figures.OTHER;
                 break;
         }
         typeComponent.setType(type);
         entity.add(typeComponent);
         return entity;
     }
-    private Entity addAnimationComponent(Entity entity, String entityName){
+
+    private Entity addAnimationComponent(Entity entity, String entityName) {
         AnimationComponent animationComponent = engine.createComponent(AnimationComponent.class);
 
-        switch(entityName){
+        switch (entityName) {
             case "player"://adding Animations to player
-                animationComponent.addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
-                        new Animation(0.25f,atlas.findRegions("Player_Back")))
-                        .addAnimation(AnimationComponent.ANIMATIONSTATE.DOWN,new Animation(0.25f,atlas.findRegions("Player_Front")))
-                        .addAnimation(AnimationComponent.ANIMATIONSTATE.LEFT,new Animation(0.25f,atlas.findRegions("Player_Left")))
-                        .addAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT,new Animation(0.25f,atlas.findRegions("Player_Right")));
+                animationComponent
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
+                                new Animation(0.25f, atlas.findRegions("Player_Back")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.DOWN, new Animation(0.25f, atlas.findRegions("Player_Front")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.LEFT, new Animation(0.25f, atlas.findRegions("Player_Left")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT, new Animation(0.25f, atlas.findRegions("Player_Right")));
+
 
                 break;
             case "tier1":
+                animationComponent
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
+                                new Animation(0.25f, atlas.findRegions("1hpEnemy_Back")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.DOWN, new Animation(0.25f, atlas.findRegions("1hpEnemy_Front")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.LEFT, new Animation(0.25f, atlas.findRegions("1hpEnemy_Left")))
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT, new Animation(0.25f, atlas.findRegions("1hpEnemy_Right")));
+
                 break;
             case "mini1":
                 break;
             case "boss":
                 break;
-            case"repairPack":
+            case "repairPack":
+                animationComponent
+                        .addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
+                                new Animation(0.25f, atlas.findRegions("RepairKit")));
                 break;
         }
         entity.add(animationComponent);
@@ -339,32 +346,45 @@ public class EntityManager {
 
 
     }
-    private Entity addTextureComponent(Entity entity,String entityName) {
+
+    private Entity addTextureComponent(Entity entity, String entityName) {
         TextureComponent textureComponent = engine.createComponent(TextureComponent.class);
-        switch(entityName) {
+        switch (entityName) {
             case "player":
                 textureComponent.setRegion((TextureRegion) entity
                         .getComponent(AnimationComponent.class)
                         .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
+
+
+
                 break;
             case "tier1":
-               // textureComponent.setRegion(new TextureRegion(atlas.findRegion("Scrap")));
-                textureComponent.setRegion(new TextureRegion(atlas.findRegion("1hpEnemy")));
+                textureComponent.setRegion((TextureRegion) entity
+                        .getComponent(AnimationComponent.class)
+                        .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
+                break;
+            case "repairPack":
+                textureComponent.setRegion((TextureRegion) entity
+                        .getComponent(AnimationComponent.class)
+                        .getAnimation(AnimationComponent.ANIMATIONSTATE.UP).getKeyFrames()[0]);
+
                 break;
         }
         entity.add(textureComponent);
         return entity;
     }
-    private Entity addRenderableComponent(Entity entity){
+
+    private Entity addRenderableComponent(Entity entity) {
         RenderableComponent renderableComponent = engine.createComponent(RenderableComponent.class);
         entity.add(renderableComponent);
         return entity;
 
     }
+
     private Entity addTransformComponent(Entity entity, int x, int y) {
         TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
-        tempPositionVector.set(x,y);
-        transformComponent.setPosition(new Vector2(0,0));
+        tempPositionVector.set(x, y);
+        transformComponent.setPosition(new Vector2(0, 0));
 
         entity.add(transformComponent);
         return entity;
