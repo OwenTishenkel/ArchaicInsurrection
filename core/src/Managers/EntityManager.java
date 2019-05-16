@@ -137,7 +137,7 @@ public class EntityManager {
                 addStateComponent(entity, entityName);
                 addHealthComponent(entity);
                 addAttackComponent(entity);
-                addAnimationComponent(entity, entityName);
+               addAnimationComponent(entity, entityName);
                  addTextureComponent(entity,entityName);
                  addRenderableComponent(entity);
 
@@ -148,9 +148,9 @@ public class EntityManager {
                 addTransformComponent(entity, x, y);
                 addTypeComponent(entity, entityName);
                 addCollisionComponent(entity);
-                addAnimationComponent(entity, entityName);
-                addRenderableComponent(entity);
-                addTextureComponent(entity,entityName);
+                //addAnimationComponent(entity, entityName);
+               // addRenderableComponent(entity);
+              // addTextureComponent(entity,entityName);
 
 
                 break;
@@ -338,7 +338,14 @@ public class EntityManager {
             case "repairPack":
                 animationComponent
                         .addAnimation(AnimationComponent.ANIMATIONSTATE.UP,
-                                new Animation(0.25f, atlas.findRegions("RepairKit")));
+                                new Animation(0.25f, atlas.findRegions("RepairKit")))
+                .addAnimation(AnimationComponent.ANIMATIONSTATE.DOWN,
+                    new Animation(0.25f, atlas.findRegions("RepairKit")))
+                .addAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT,
+                    new Animation(0.25f, atlas.findRegions("RepairKit")))
+                .addAnimation(AnimationComponent.ANIMATIONSTATE.LEFT,
+                    new Animation(0.25f, atlas.findRegions("RepairKit")));
+
                 break;
         }
         entity.add(animationComponent);
@@ -366,7 +373,7 @@ public class EntityManager {
             case "repairPack":
                 textureComponent.setRegion((TextureRegion) entity
                         .getComponent(AnimationComponent.class)
-                        .getAnimation(AnimationComponent.ANIMATIONSTATE.UP).getKeyFrames()[0]);
+                        .getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN).getKeyFrames()[0]);
 
                 break;
         }

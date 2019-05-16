@@ -11,6 +11,7 @@ import Components.AnimationComponent;
 import Components.RenderableComponent;
 import Components.StateComponent;
 import Components.TextureComponent;
+import Components.TypeComponent;
 import Helpers.Mappers;
 
 public class AnimationSystem extends IteratingSystem {
@@ -28,20 +29,83 @@ public class AnimationSystem extends IteratingSystem {
         animationComponent.setTime(deltaTime+animationComponent.getTime());
         float stateTimer= animationComponent.getTime();
         Animation currentAnimation;
+       Gdx.app.log( "Type:"," "+entity.getComponent(TypeComponent.class).getType());
         switch(stateComponent.getState()) {
             case MOVING:
-                if(stateComponent.getDirection()==stateComponent.DIRECTION.DOWN) {
+                if(stateComponent.getDirection()==StateComponent.DIRECTION.DOWN) {
                     currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN);
                     animationComponent.setLooping(true);
                     if(currentAnimation==null) {
                         Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly Down");
                     }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrame(stateTimer,animationComponent.getLooping()));
+
+                } else if(stateComponent.getDirection()==StateComponent.DIRECTION.UP) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.UP);
+                    animationComponent.setLooping(true);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly up");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrame(stateTimer,animationComponent.getLooping()));
 
                 }
-                textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrame(stateTimer,currentAnimation.getLooping()));
+                else if(stateComponent.getDirection()==StateComponent.DIRECTION.RIGHT) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT);
+                    animationComponent.setLooping(true);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly right");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrame(stateTimer,animationComponent.getLooping()));
+
+                }
+                if(stateComponent.getDirection()==StateComponent.DIRECTION.LEFT) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.LEFT);
+                    animationComponent.setLooping(true);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly left");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrame(stateTimer,animationComponent.getLooping()));
+
+                }
+
 
                 break;
             case IDLE:
+                if(stateComponent.getDirection()==StateComponent.DIRECTION.DOWN) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.DOWN);
+                    animationComponent.setLooping(false);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly Down");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrames()[0]);
+
+                } else if(stateComponent.getDirection()==StateComponent.DIRECTION.UP) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.UP);
+                    animationComponent.setLooping(false);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly up");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrames()[0]);
+
+                }
+                else if(stateComponent.getDirection()==StateComponent.DIRECTION.RIGHT) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.RIGHT);
+                    animationComponent.setLooping(false);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly right");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrames()[0]);
+
+                }
+                if(stateComponent.getDirection()==StateComponent.DIRECTION.LEFT) {
+                    currentAnimation=animationComponent.getAnimation(AnimationComponent.ANIMATIONSTATE.LEFT);
+                    animationComponent.setLooping(false);
+                    if(currentAnimation==null) {
+                        Gdx.app.log("ANIMATITIONSYS:","Animation is not loaded properly left");
+                    }
+                    textureComponent.setRegion((TextureRegion) currentAnimation.getKeyFrames()[0]);
+
+                }
 
                 break;
 
