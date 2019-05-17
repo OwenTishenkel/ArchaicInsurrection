@@ -91,7 +91,7 @@ public class EntityManager {
 
     public void spawnEntities(TiledMap map) {
 
-        MapLayer layer = map.getLayers().get("MAP_SPAWN_LAYER");
+        MapLayer layer = map.getLayers().get("Object Layer 2");
         for (MapObject object : layer.getObjects()) {
             String entityName = object.getProperties().get("Spawn", String.class);
 

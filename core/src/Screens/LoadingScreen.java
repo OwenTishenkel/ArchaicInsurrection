@@ -86,7 +86,7 @@ if(timetoWait<=0 && (myAssetManager.loadCompleted()==1)) {
 
     }
     private void loadingMapAssets(){
-        myAssetManager.loadMapAsset("TestMap.tmx"); //Dosen't work debug it
+        myAssetManager.loadMapAsset("ArchaicMapv1.tmx"); //Dosen't work debug it
         Gdx.app.log(TAG,"Loading:"+myAssetManager.loadCompleted());
 
 

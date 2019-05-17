@@ -27,7 +27,7 @@ public class MainmenuScreen implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG, "In SHOW method of MainmenuScreen class");
-        myAssetManager.loadMapAsset("TestMap.tmx");
+        myAssetManager.loadMapAsset("ArchaicMapv1.tmx");
     }
 
     @Override
@@ -40,7 +40,7 @@ public class MainmenuScreen implements Screen {
         timetoWait-=delta;
        // myAssetManager.updateAssetLoading();
        // Gdx.app.log(TAG,"Time to wait: "+timetoWait);
-        if(timetoWait<=0 &&myAssetManager.isAssetLoaded("TestMap.tmx")) {
+        if(timetoWait<=0 &&myAssetManager.isAssetLoaded("ArchaicMapv1.tmx")) {
             Gdx.app.log(TAG, "IN timetoWait if statement OF RENDER method in MainmenuScreen class");
             Gdx.app.log(TAG, "Jumping to MainGameScreen");
             game.setScreen(ArchaicInsurrection.SCREENTYPE.GAME);

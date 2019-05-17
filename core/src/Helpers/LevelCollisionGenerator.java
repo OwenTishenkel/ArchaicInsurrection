@@ -38,7 +38,7 @@ public class LevelCollisionGenerator {
     private TiledMap map;
     private Array<Body> levelBodies;
     private Array<Entity> levelEntities;
-    private static final String COLLISION_LAYER = "COLLISION_LAYER";
+    private static final String COLLISION_LAYER = "Object Layer 1";
 
     public LevelCollisionGenerator(World world, PooledEngine engine) {
         this.world = world;
